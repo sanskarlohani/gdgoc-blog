@@ -1,0 +1,14 @@
+diff --git a/node_modules/@chakra-ui/icons/dist/esm/Spinner.mjs b/node_modules/@chakra-ui/icons/dist/esm/Spinner.mjs
+index 667d6c4..9c04cd6 100644
+--- a/node_modules/@chakra-ui/icons/dist/esm/Spinner.mjs
++++ b/node_modules/@chakra-ui/icons/dist/esm/Spinner.mjs
+@@ -1,7 +1,7 @@
+ import { jsxs, jsx } from 'react/jsx-runtime';
+-import { forwardRef, Icon } from '@chakra-ui/react';
++import {  Icon } from '@chakra-ui/react';
+ import { useId } from 'react';
+-
++import { forwardRef } from 'react';
+ const SpinnerIcon = forwardRef((props, ref) => {
+   const id = useId();
+   return /* @__PURE__ */ jsxs(Icon, { ref, viewBox: "0 0 24 24", ...props, children: [

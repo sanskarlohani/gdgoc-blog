@@ -7,12 +7,13 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+     "postinstall": "patch-package"
   },
   "dependencies": {
     "@chakra-ui/color-mode": "^2.2.0",
     "@chakra-ui/form-control": "^2.2.0",
-    "@chakra-ui/icons": "^2.2.4",
+    "@chakra-ui/icons": "^2.2.5",
     "@chakra-ui/input": "^2.1.2",
     "@chakra-ui/layout": "^2.3.1",
     "@chakra-ui/menu": "^2.2.1",
