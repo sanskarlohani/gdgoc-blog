@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { Box, Heading, Text, SimpleGrid,  VStack } from '@chakra-ui/react';
 import { Image } from '@chakra-ui/react';
 const teamMembers = [

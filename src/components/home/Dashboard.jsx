@@ -1,5 +1,3 @@
-import React from "react";
-import { useAuth } from "../../contexts/AuthContext";
 import { Box, Text, Image, Button} from "@chakra-ui/react";
 import { Divider } from "@chakra-ui/layout";
 import { Link } from "react-router-dom";

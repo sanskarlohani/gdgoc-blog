@@ -1,12 +1,9 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 import {
-  Container,
   Box,
-  Flex,
   Button,
   Text,
   Input,
-  SimpleGrid,
   Link as ChakraLink,
 } from "@chakra-ui/react";
 import { FormLabel } from "@chakra-ui/form-control";
@@ -107,7 +104,8 @@ function ForgotPassword() {
         height="100%"
         bgGradient="linear(to-br, blue.500, blue.400)"
         boxShadow="2xl"
-      ></Box>
+      >{error};
+      </Box>
     </Box>
   );
 }

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import  { useState, useEffect } from "react";
 import {
   Box,
   Flex,
@@ -10,17 +10,15 @@ import {
 import { Menu,MenuButton,MenuList, MenuItem, MenuGroup, MenuDivider } from "@chakra-ui/menu";
 import { HamburgerIcon,ArrowDownIcon } from "@chakra-ui/icons";
 import { toast } from "react-toastify";
-import ToggleTheme from "../../theme/ToggleTheme";
 import { useAuth } from "../../contexts/AuthContext";
 import { useNavigate, Link } from "react-router-dom";
-import { useColorMode } from "@chakra-ui/color-mode";
+
 
 function Nav() {
   const [width, setWidth] = useState(window.innerWidth);
   
   const navigate = useNavigate();
   const { currentUser, logout } = useAuth();
-  const { colorMode, toggleColorMode } = useColorMode();
   
   useEffect(() => {
     const handleResize = () => setWidth(window.innerWidth);
@@ -37,6 +35,7 @@ function Nav() {
       toast.success("Logged out successfully");
       navigate("/");
     } catch (error) {
+      console.error(error);
      toast.error("Failed to logout");
     }
   };

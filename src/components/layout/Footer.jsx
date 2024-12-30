@@ -1,4 +1,4 @@
-import React from "react";
+
 import { Box, IconButton } from "@chakra-ui/react";
 import { FiGithub } from "react-icons/fi";
 function Footer() {

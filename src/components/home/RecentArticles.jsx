@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import {
   Box,
-  Flex,
   Text,
 } from "@chakra-ui/react";
-import { StarIcon, SearchIcon } from "@chakra-ui/icons";
+import { StarIcon } from "@chakra-ui/icons";
 import { Input, InputGroup } from "@chakra-ui/input";
 import LoadingSmall from "../layout/LoadingSmall";
 import { Divider } from "@chakra-ui/layout";
