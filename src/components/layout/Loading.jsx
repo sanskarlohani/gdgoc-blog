@@ -13,8 +13,8 @@ const Loading = () => {
   ];
 
   const variants = {
-    start: { opacity: 0.5, scale: 0.8 },
-    end: { opacity: 1, scale: 1.2 }
+    start: { opacity: 0.5, scale: 0.8 }, // size of the circle initially
+    end: { opacity: 1, scale: 1.2 } // size of the circle when it's animating
   };
 
   return (
