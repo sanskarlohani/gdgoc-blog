@@ -17,7 +17,6 @@ import { useNavigate, Link } from "react-router-dom";
 const img = "/image.png"
 
 function Nav() {
-  const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
   const [width, setWidth] = useState(window.innerWidth);
 
   const navigate = useNavigate();
@@ -26,17 +25,7 @@ function Nav() {
     const handleResize = () => setWidth(window.innerWidth);
     window.addEventListener("resize", handleResize);
 
-    const updateCursorPosition = (e) => {
-      setCursorPosition({ x: e.clientX+window.scrollX, y: e.clientY+window.scrollY });
-    };
-
-    const moveCursorSmoothly = (e) => {
-      window.requestAnimationFrame(() => updateCursorPosition(e));
-    };
-    window.addEventListener("mousemove", moveCursorSmoothly);
-
     return () => {
-      window.removeEventListener("mousemove", updateCursorPosition);
       window.removeEventListener("resize", handleResize);
     };
   }, []);
@@ -67,7 +56,7 @@ function Nav() {
     <Box py="3" px={["6", "10"]} width="100%">
       <Flex justify="center" align="center">
         <Link to="/">
-          <Image src={img} width="150px" height="100px" />
+          <Image src={img} width="150px" height="90px" />
         </Link>
 
 
@@ -85,7 +74,6 @@ function Nav() {
                   as={IconButton}
                   aria-label="Options"
                   variant="outline"
-                  _hover={{ bg: "blue" }}
                   textColor={"black"}
                   filter={"brightness(1.5)"}
                 >
@@ -130,14 +118,7 @@ function Nav() {
           )}
         </Box>
       </Flex>
-      <div
-        className="custom-cursor"
-        style={{
-          left: `${cursorPosition.x - 5}px`, 
-          top: `${cursorPosition.y - 5}px`,  
-          background:"purple"
-        }}
-      />
+
     </Box>
   );
 }

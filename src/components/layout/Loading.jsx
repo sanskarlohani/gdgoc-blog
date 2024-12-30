@@ -23,7 +23,8 @@ const Loading = () => {
       justifyContent="center"
       alignItems="center"
       height="100vh"
-      bg="gray.100"
+      width={"100%"}
+      bg="white.100"
     >
       <VStack spacing={4}>
         <Box display="flex">
