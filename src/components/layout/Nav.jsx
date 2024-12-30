@@ -50,7 +50,7 @@ function Nav() {
           Medium
         </Text>
         <Spacer />
-        <ToggleTheme />
+
         <Box ml="2">
           {currentUser ? (
             <Menu>
