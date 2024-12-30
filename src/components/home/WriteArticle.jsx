@@ -75,7 +75,7 @@ function WriteArticle() {
         <Nav />
 
         <Box px={["6", "10"]}>
-          <Text fontSize={["2xl", "3xl"]} textAlign="center">
+          <Text fontSize={["2xl", "7xl"]} textAlign="center" fontWeight={"bold"} >
             Write your heart out!
           </Text>
           <Text fontSize={["sm", "md"]} textAlign="center" color="blue.500">
@@ -85,10 +85,11 @@ function WriteArticle() {
           <Textarea
             variant="unstyled"
             placeholder="Title"
-            fontSize={["4xl", "5xl"]}
+            fontSize={["4xl", "4xl"]}
+            fontWeight={"bold"}
             mt="15"
             resize="vertical"
-            rows={1}
+            rows={2}
             onChange={(e) => setTitle(e.target.value)}
           />
           <Textarea
@@ -96,7 +97,7 @@ function WriteArticle() {
             placeholder="Subtitle"
             fontSize={["xl", "2xl"]}
             resize="vertical"
-            rows={1}
+            rows={2}
             onChange={(e) => setSubtitle(e.target.value)}
           />
 
@@ -120,17 +121,17 @@ function WriteArticle() {
               justifyContent="flex-start"
               alignItems={[null, null, "center"]}
             >
-              <Text fontSize={["xl", "2xl"]} mr="4" mb={[2, 2, 0]}>
+              <Text fontSize={["xl", "2xl"]} mr="4" mb={[2, 2, 0]} fontWeight={"bold"}>
                 Choose your article's visibility
               </Text>
-
                <RadioGroup
+               defaultValue="public"
                 onChange={setVisibility}
                 value={visibility}
                 mb={[2, 2, 0]}
               >
-                 <Stack direction="row">
-                  <Radio mr="2" isChecked={true} size="lg" value="public">
+                 <Stack direction="row" gap={6}>
+                  <Radio value="public" mr="2" isChecked={true} size="lg" colorScheme="blue">
                     Public
                   </Radio>
                   <Radio size="lg" value="private">

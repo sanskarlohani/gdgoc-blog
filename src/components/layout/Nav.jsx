@@ -46,7 +46,7 @@ function Nav() {
     <Box py="5" px={["6", "10"]} width="100%">
       <Flex justify="center" align="center">
         <Text as={Link} to="/" fontSize={["2xl", "3xl"]} fontWeight="bold">
-          Medium
+          GDGOC Blog
         </Text>
         <Spacer />
 
