@@ -83,7 +83,7 @@ function SuggestedArticles() {
           type="text"
           placeholder="Search for articles"
           height={["56px", "64px", "72px"]}
-          width="full"
+          w={["100%", "100%", "100%", "100%"]}
           borderRadius="md"
           fontSize={["lg", "xl", "2xl"]}
           onChange={(e) => handleSearch(e)}

@@ -1,4 +1,4 @@
-import  { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import {
   Box,
   Flex,
@@ -8,19 +8,39 @@ import {
   Button,
   Image,
 } from "@chakra-ui/react";
-import { Menu,MenuButton,MenuList, MenuItem, MenuGroup, MenuDivider } from "@chakra-ui/menu";
-import { HamburgerIcon,ArrowDownIcon } from "@chakra-ui/icons";
+import "../../App.css";
+import { Menu, MenuButton, MenuList, MenuItem, MenuGroup, MenuDivider } from "@chakra-ui/menu";
+import { HamburgerIcon, ArrowDownIcon } from "@chakra-ui/icons";
 import { toast } from "react-toastify";
 import { useAuth } from "../../contexts/AuthContext";
 import { useNavigate, Link } from "react-router-dom";
-const img= "/image.png"
+const img = "/image.png"
 
 function Nav() {
+  const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
   const [width, setWidth] = useState(window.innerWidth);
-  
+
   const navigate = useNavigate();
   const { currentUser, logout } = useAuth();
-  
+  useEffect(() => {
+    const handleResize = () => setWidth(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+
+    const updateCursorPosition = (e) => {
+      setCursorPosition({ x: e.clientX+window.scrollX, y: e.clientY+window.scrollY });
+    };
+
+    const moveCursorSmoothly = (e) => {
+      window.requestAnimationFrame(() => updateCursorPosition(e));
+    };
+    window.addEventListener("mousemove", moveCursorSmoothly);
+
+    return () => {
+      window.removeEventListener("mousemove", updateCursorPosition);
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   useEffect(() => {
     const handleResize = () => setWidth(window.innerWidth);
     window.addEventListener("resize", handleResize);
@@ -37,20 +57,20 @@ function Nav() {
       navigate("/");
     } catch (error) {
       console.error(error);
-     toast.error("Failed to logout");
+      toast.error("Failed to logout");
     }
   };
 
 
 
   return (
-    <Box py="5" px={["6", "10"]} width="100%">
+    <Box py="3" px={["6", "10"]} width="100%">
       <Flex justify="center" align="center">
-       <Link to="/">
-       <Image src={img}  width="150px" height="100px" />
-       </Link>
-         
-        
+        <Link to="/">
+          <Image src={img} width="150px" height="100px" />
+        </Link>
+
+
         <Spacer />
 
         <Box ml="2">
@@ -65,24 +85,41 @@ function Nav() {
                   as={IconButton}
                   aria-label="Options"
                   variant="outline"
-                  background={"black"}
-                  textColor={"white"}
+                  _hover={{ bg: "blue" }}
+                  textColor={"black"}
+                  filter={"brightness(1.5)"}
                 >
-                  <HamburgerIcon/>
+                  <HamburgerIcon />
                 </MenuButton>
               )}
-              <MenuList>
-                <MenuGroup>
-                  <MenuItem as={Link} to="/write">
+              <MenuList >
+                <MenuGroup  >
+                  <MenuItem as={Link} to="/write" _hover={{
+                    bg: "skyblue",
+                    color: "white",
+                    transform: "scale(1.1)",
+                  }}>
                     Write article
                   </MenuItem>
-                  <MenuItem as={Link} to="/my-articles">
+                  <MenuItem as={Link} to="/my-articles" _hover={{
+                    bg: "skyblue",
+                    color: "white",
+                    transform: "scale(1.1)",
+                  }}>
                     My articles
                   </MenuItem>
                 </MenuGroup>
                 <MenuDivider />
-                <MenuGroup title={currentUser?.displayName || "Guest User"}>
-                  <MenuItem onClick={handleLogout}>Logout</MenuItem>
+                <MenuGroup _hover={{
+                  bg: "skyblue",
+                  color: "white",
+
+                }} title={currentUser?.displayName || "Guest User"}>
+                  <MenuItem onClick={handleLogout} _hover={{
+                    bg: "skyblue",
+                    color: "white",
+                    transform: "scale(1.1)",
+                  }}>Logout</MenuItem>
                 </MenuGroup>
               </MenuList>
             </Menu>
@@ -93,6 +130,14 @@ function Nav() {
           )}
         </Box>
       </Flex>
+      <div
+        className="custom-cursor"
+        style={{
+          left: `${cursorPosition.x - 5}px`, 
+          top: `${cursorPosition.y - 5}px`,  
+          background:"purple"
+        }}
+      />
     </Box>
   );
 }
