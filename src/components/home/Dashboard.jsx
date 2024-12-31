@@ -100,7 +100,7 @@ function Dashboard() {
                 <Box  display="flex" justifyContent="center" alignItems="center" gap={5} >
                 <Button
                   as={Link}
-                  to="/write-article"
+                  to="/write"
                   colorScheme="blue"
                   isFullWidth
                   py="8"
@@ -110,7 +110,7 @@ function Dashboard() {
                   >Write</Button>                
                 <Button
                   as={Link}
-                  to="/suggested-articles"
+                  to="/suggested"
                   colorScheme="blue"
                   isFullWidth
                   py="8"
