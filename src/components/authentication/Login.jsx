@@ -53,7 +53,6 @@ function Login() {
       <Box
         display="flex"
         width={["100vw", null, null, "40vw"]}
-        height="100vh"
         justifyContent="center"
         alignItems="center"
         textAlign="center"
@@ -91,12 +90,6 @@ function Login() {
           </Link>
         </Text>
       </Box>
-      <Box
-        width={["0vw", null, null, "60vw"]}
-        height="100%"
-        bgGradient="linear(to-br, blue.500, blue.400)"
-        boxShadow="2xl"
-      ></Box>
     </Box>
   
     

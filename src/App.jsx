@@ -24,7 +24,7 @@ function App() {
           <Routes>
             {/* Home routes */}
             <Route exact path="/" element={<Dashboard />} />
-            <Route exact path="/suggested-articles" element={<SuggestedArticles />} />
+            <Route exact path="/suggested" element={<SuggestedArticles />} />
             <Route exact path="/write" element={
               <PrivateRoute>
                 <WriteArticle />

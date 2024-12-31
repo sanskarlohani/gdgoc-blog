@@ -28,7 +28,12 @@ const teamMembers = [
     photo: '/manish.JPG',
   },
   {
-    name: 'Bob Brown',
+    name: 'jayDeep',
+    position: 'Developer',
+    photo: '/manish.JPG',
+  },
+  {
+    name: '',
     position: 'Developer',
     photo: '/manish.JPG',
   },

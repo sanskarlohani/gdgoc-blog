@@ -33,7 +33,7 @@ function WriteArticle() {
       toast.info("Please fill all the fields");
       return;
     }
-
+console.log(currentUser)
     try {
       setLoading(true);
       const result = await postArticle({

@@ -45,60 +45,53 @@ function Signup() {
 
   return (
     <Box
-      width="100vw"
-      height="100vh"
+    width="100%"
+    height="100vh"
+    display="flex"
+    justifyContent="center"
+    alignContent="center"
+  >
+    <Box
       display="flex"
+      width={["100vw", null, null, "40vw"]}
       justifyContent="center"
-      alignContent="center"
+      alignItems="center"
+      textAlign="center"
+      flexDirection="column"
     >
-      <Box
-        display="flex"
-        width={["100vw", null, null, "40vw"]}
-        height="100vh"
-        justifyContent="center"
-        alignItems="center"
-        textAlign="center"
-        flexDirection="column"
-      >
-        <Box width="90%" maxW="400px" boxShadow="lg" px={6} py={8} rounded="lg">
-          <Text fontSize="2xl" fontWeight="semibold" mb={4}>
-            Sign Up
-          </Text>
-          <Button
-            width="100%"
-            mt={4}
-            py={6}
-            colorScheme="blue"
-            onClick={handleGoogleSignIn}
-            isLoading={loading}
-          >
-            Sign up with Google
-          </Button>
-          <Button
-            width="100%"
-            mt={4}
-            py={6}
-            colorScheme="gray"
-            onClick={handleGithubSignIn}
-            isLoading={loading}
-          >
-            Sign up with GitHub
-          </Button>
-        </Box>
-        <Text mt={8} fontWeight="normal" fontSize="lg">
-          Already have an account?{" "}
-          <Link to="/login">
-            <ChakraLink color="blue.400">Login</ChakraLink>
-          </Link>
+      <Box width="90%" maxW="400px" boxShadow="lg" px={6} py={8} rounded="lg">
+        <Text fontSize="2xl" fontWeight="semibold" mb={4}>
+          Login
         </Text>
+        <Button
+          width="100%"
+          mt={4}
+          py={6}
+          colorScheme="blue"
+          onClick={handleGoogleSignIn}
+          isLoading={loading}
+        >
+          Sign up with Google
+        </Button>
+        <Button
+          width="100%"
+          mt={4}
+          py={6}
+          colorScheme="gray"
+          onClick={handleGithubSignIn}
+          isLoading={loading}
+        >
+          Sign up with GitHub
+        </Button>
       </Box>
-      <Box
-        width={["0vw", null, null, "60vw"]}
-        height="100%"
-        bgGradient="linear(to-br, blue.500, blue.400)"
-        boxShadow="2xl"
-      ></Box>
+      <Text mt={8} fontWeight="normal" fontSize="lg">
+        already  have an account?{" "}
+        <Link to="/login">
+          <ChakraLink color="blue.400">Sign In</ChakraLink>
+        </Link>
+      </Text>
     </Box>
+  </Box>
   );
 }
 
