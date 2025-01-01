@@ -3,45 +3,46 @@ import { Box, Heading, Text, SimpleGrid,  VStack } from '@chakra-ui/react';
 import { Image } from '@chakra-ui/react';
 const teamMembers = [
   {
-    name: 'Sanskar Lohani',
-    position: 'CEO',
-    photo: '/sanskar.jpg',
-  },
-  {
-    name: 'Sakshi Prasad Singh',
-    position: 'CTO',
-    photo: '/Sakshi.jpg',
-  },
-  {
     name: 'tanushree Tripathy',
-    position: 'Designer',
+    position: 'Organiser',
     photo: '/lead.jpg',
   },
   {
+    name: 'Sanskar Lohani',
+    position: 'Event Lead',
+    photo: '/sanskar.jpg',
+  },
+  {
+    name: 'Subham Kumar Das',
+    position: 'Web Dev Lead',
+    photo: '/me.jpg',
+  },
+  {
+    name: 'Sakshi Prasad Singh',
+    position: 'App Dev Lead',
+    photo: '/Sakshi.jpg',
+  },
+  
+  {
     name: 'Jay Dev ',
-    position: 'Developer',
+    position: 'Web3 Lead',
     photo: '/jd.jpg',
   },
   {
     name: 'manish kumar jha',
-    position: 'Developer',
+    position: 'AI/Ml Lead',
     photo: '/manish.JPG',
   },
   {
-    name: 'jayDeep',
-    position: 'Developer',
-    photo: '/manish.JPG',
+    name: 'jaydeep Dash',
+    position: 'Design Lead',
+    photo: '/jaydeep_dash.jpg',
   },
   {
-    name: '',
-    position: 'Developer',
-    photo: '/manish.JPG',
-  },
-  {
-    name: 'Bob Brown',
-    position: 'Developer',
-    photo: '/manish.JPG',
-  },
+    name: 'Ashlesa Mohapatra',
+    position: 'Social Media Lead',
+    photo: '/Ashlesa.jpg',
+  }, 
 ];
 
 const TeamPage = () => {

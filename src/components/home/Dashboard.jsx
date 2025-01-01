@@ -1,4 +1,4 @@
-import { Box, Text, Image, Button} from "@chakra-ui/react";
+import { Box, Text, Image, Button } from "@chakra-ui/react";
 import { Divider } from "@chakra-ui/layout";
 import { Link } from "react-router-dom";
 import Nav from "../layout/Nav";
@@ -9,6 +9,7 @@ import { motion } from "framer-motion";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import TeamPage from "./Team";
+import InfiniteCarousel from "./Events";
 
 const carouselItems = [
   {
@@ -28,6 +29,28 @@ const carouselItems = [
   },
 ];
 
+const events = [
+  {
+    label: 1,
+    photo: "/p1.jpg"
+  },
+  {
+    label: 1,
+    photo: "/p1.jpg"
+  },
+  {
+    label: 1,
+    photo: "/p1.jpg"
+  },
+  {
+    label: 1,
+    photo: "/p1.jpg"
+  },
+  {
+    label: 1,
+    photo: "/p1.jpg"
+  }
+]
 const introVariants = {
   hidden: { opacity: 0, y: -50 },
   visible: { opacity: 1, y: 0, transition: { duration: 1 } },
@@ -50,8 +73,8 @@ const logoVariants = {
   },
 };
 
-function Dashboard() {
-  
+export default function Dashboard() {
+
 
   const settings = {
     dots: true,
@@ -97,33 +120,33 @@ function Dashboard() {
                   It's easy and free to post your thinking on any topic and
                   connect with millions of readers.
                 </Text>
-                <Box  display="flex" justifyContent="center" alignItems="center" gap={5} >
-                <Button
-                  as={Link}
-                  to="/write"
-                  colorScheme="blue"
-                  isFullWidth
-                  py="8"
-                  mt="6"
-                  fontSize="xl"
-                  rounded={"full"}
-                  >Write</Button>                
-                <Button
-                  as={Link}
-                  to="/suggested"
-                  colorScheme="blue"
-                  isFullWidth
-                  py="8"
-                  mt="6"
-                  fontSize="xl"
-                  rounded={"full"}
-                >
-                 Discover More
-                </Button>
+                <Box display="flex" justifyContent="center" alignItems="center" gap={5} >
+                  <Button
+                    as={Link}
+                    to="/write"
+                    colorScheme="blue"
+                    isFullWidth
+                    py="8"
+                    mt="6"
+                    fontSize="xl"
+                    rounded={"full"}
+                  >Write</Button>
+                  <Button
+                    as={Link}
+                    to="/suggested"
+                    colorScheme="blue"
+                    isFullWidth
+                    py="8"
+                    mt="6"
+                    fontSize="xl"
+                    rounded={"full"}
+                  >
+                    Discover More
+                  </Button>
                 </Box>
-                
+
               </Box>
-              <Box px="8" d="flex" justifyContent="center" alignItems="center">
+              <Box px="8" display="flex" justifyContent="center" alignItems="center">
                 <motion.div variants={logoVariants} animate="animate">
                   <Image src={gdgLogo} alt="GDG Logo" /> {/* Use the GDG logo */}
                 </motion.div>
@@ -145,14 +168,15 @@ function Dashboard() {
                   <Text fontSize="lg">{item.description}</Text>
                 </Box>
               ))}
+
             </Slider>
           </motion.div>
+          <InfiniteCarousel/>
         </Box>
-        <TeamPage/>
+        <TeamPage />
         <Footer />
       </Box>
     </Box>
   );
 }
 
-export default Dashboard;
