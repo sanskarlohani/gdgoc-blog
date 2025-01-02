@@ -9,7 +9,7 @@ import { motion } from "framer-motion";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import TeamPage from "./Team";
-import InfiniteCarousel from "./Events";
+import MarqueeCarousel from "./Events";
 
 const carouselItems = [
   {
@@ -87,7 +87,7 @@ export default function Dashboard() {
   };
 
   return (
-    <Box display="flex" justifyContent="center" alignItems="center">
+    <Box position="relative" flex justifyContent="center" alignItems="center" width={'100%'}>
       <Box
         width={["100vw", null, null, "70vw"]}
         display="flex"
@@ -156,23 +156,20 @@ export default function Dashboard() {
           <Divider my={["10", "16"]} />
         </Box>
 
-        <Box px={["6", "10"]}>
-          <motion.div initial="hidden" animate="visible" variants={carouselVariants}>
-            <Slider {...settings}>
-              {carouselItems.map((item, index) => (
-                <Box key={index} textAlign="center">
-                  <Image src={item.image} alt={item.title} mb={4} />
-                  <Text fontSize="2xl" fontWeight="bold">
-                    {item.title}
-                  </Text>
-                  <Text fontSize="lg">{item.description}</Text>
-                </Box>
-              ))}
-
-            </Slider>
-          </motion.div>
-          <InfiniteCarousel/>
+        <Box
+          width="100%"
+          overflow="hidden"
+          position="relative"
+          py="8"
+          mx='0'
+          px={0}
+        >
+          <Text textAlign="center" fontSize="lg" fontWeight="bold" mb="4">
+            Previous Event Photos
+          </Text>
+          <MarqueeCarousel />
         </Box>
+        
         <TeamPage />
         <Footer />
       </Box>

@@ -1,8 +1,5 @@
-import { Box, Image } from "@chakra-ui/react";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-
+import { Box, Image, Text } from "@chakra-ui/react";
+import "../../global.css"
 const events = [
   { label: 1, photo: "/p1.jpg" },
   { label: 2, photo: "/p2.jpg" },
@@ -17,39 +14,21 @@ const events = [
   { label: 11, photo: "/10.JPG" },
   { label: 12, photo: "/5.JPG" },
 ];
-
-function InfiniteCarousel() {
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 7, 
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 2000,
-    responsive: [
-      {
-        breakpoint: 768, 
-        settings: {
-          slidesToShow: 2,
-        },
-      },
-      {
-        breakpoint: 480, 
-        settings: {
-          slidesToShow: 1,
-        },
-      },
-    ],
-  };
-
+function MarqueeCarousel() {
   return (
-    <Box maxWidth="100%"  mt="8">
-      <Slider {...settings}>
-        {events.map((event, index) => (
+    <Box position={'relative'} overflow="hidden" width="100%" mt="8">
+      <Box
+        display="flex"
+        alignItems="center"
+        width="100%" 
+        animation="marquee 15s linear infinite"
+        gap="0" 
+      >
+        {events.concat(events).map((event, index) => (
           <Box
             key={index}
-            p={2}
+            flexShrink={0}
+            width="calc(100vw / 5)" /* Dynamically size the images */
             display="flex"
             justifyContent="center"
             alignItems="center"
@@ -58,14 +37,23 @@ function InfiniteCarousel() {
               src={event.photo}
               alt={`Event ${event.label}`}
               borderRadius="md"
-              boxSize="300px"
               objectFit="cover"
+              width="100%"
+              height="200px"
             />
           </Box>
         ))}
-      </Slider>
+      </Box>
+      <style>
+        {`
+          @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-100%); }
+          }
+        `}
+      </style>
     </Box>
   );
 }
 
-export default InfiniteCarousel;
+export default MarqueeCarousel;
