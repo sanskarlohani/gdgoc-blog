@@ -87,9 +87,9 @@ export default function Dashboard() {
   };
 
   return (
-    <Box position="relative" flex justifyContent="center" alignItems="center" width={'100%'}>
+    <Box display={'flex'} justifyContent="center" alignItems="center" width={'100%'}>
       <Box
-        width={["100vw", null, null, "70vw"]}
+        width={["100vw", "100vw", null, "100vw"]}
         display="flex"
         justifyContent="center"
         flexDirection="column"
@@ -157,16 +157,21 @@ export default function Dashboard() {
         </Box>
 
         <Box
-          width="100%"
-          overflow="hidden"
+          width='full'
+          display={"flex"}
+          flexDirection={'column'}
+          justifyContent={'center'}
+          alignItems={'center'}
+          overflowX="hidden"
           position="relative"
           py="8"
           mx='0'
           px={0}
+          textAlign={'center'}
         >
-          <Text textAlign="center" fontSize="lg" fontWeight="bold" mb="4">
+          
             Previous Event Photos
-          </Text>
+
           <MarqueeCarousel />
         </Box>
         

@@ -16,19 +16,25 @@ const events = [
 ];
 function MarqueeCarousel() {
   return (
-    <Box position={'relative'} overflow="hidden" width="100%" mt="8">
+    <Box position={'relative'} overflow="hidden" width="100vw" mt="8">
       <Box
         display="flex"
         alignItems="center"
-        width="100%" 
+        width="200%" 
         animation="marquee 15s linear infinite"
-        gap="0" 
+        gap="1" 
+        sx={{
+          "@media screen and (max-width: 768px)": {
+            width: "100%", /* Prevents overflow on mobile */
+            animationDuration: "20s", // Adjust speed for smaller screens
+          },
+        }}
       >
         {events.concat(events).map((event, index) => (
           <Box
             key={index}
             flexShrink={0}
-            width="calc(100vw / 5)" /* Dynamically size the images */
+            width={["calc(100vw / 2)", "calc(100vw / 4)"]} /* Dynamically size the images */
             display="flex"
             justifyContent="center"
             alignItems="center"
@@ -39,16 +45,23 @@ function MarqueeCarousel() {
               borderRadius="md"
               objectFit="cover"
               width="100%"
-              height="200px"
+              height={["150px", "200px"]}
             />
           </Box>
         ))}
       </Box>
       <style>
-        {`
+      {`
           @keyframes marquee {
             0% { transform: translateX(0); }
-            100% { transform: translateX(-100%); }
+            100% { transform: translateX(-50%); }
+          }
+
+          @media (max-width: 768px) {
+            @keyframes marquee {
+              0% { transform: translateX(0); }
+              100% { transform: translateX(-100%); }
+            }
           }
         `}
       </style>
