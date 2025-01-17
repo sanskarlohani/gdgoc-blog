@@ -84,14 +84,14 @@ function Nav() {
               <MenuList >
                 <MenuGroup  >
                   <MenuItem as={Link} to="/write" _hover={{
-                    bg: "skyblue",
+                    bg: "black",
                     color: "white",
                     transform: "scale(1.1)",
                   }}>
                     Write article
                   </MenuItem>
                   <MenuItem as={Link} to="/my-articles" _hover={{
-                    bg: "skyblue",
+                    bg: "black",
                     color: "white",
                     transform: "scale(1.1)",
                   }}>
@@ -100,12 +100,12 @@ function Nav() {
                 </MenuGroup>
                 <MenuDivider />
                 <MenuGroup _hover={{
-                  bg: "skyblue",
+                  bg: "black",
                   color: "white",
 
                 }} title={currentUser?.displayName || "Guest User"}>
                   <MenuItem onClick={handleLogout} _hover={{
-                    bg: "skyblue",
+                    bg: "black",
                     color: "white",
                     transform: "scale(1.1)",
                   }}>Logout</MenuItem>

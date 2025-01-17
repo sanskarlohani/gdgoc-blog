@@ -75,29 +75,29 @@ console.log(currentUser)
         <Nav />
 
         <Box px={["6", "10"]}>
-          <Text fontSize={["2xl", "3xl"]} textAlign="center">
+          <Text fontSize={["3xl", "7xl"]} textAlign="center" fontFamily={"roboto"} fontWeight={"bold"} >
             Write your heart out!
           </Text>
-          <Text fontSize={["sm", "md"]} textAlign="center" color="blue.500">
+          <Text fontSize={["sm", "md"]} textAlign="center" color="gray.500" mt="2">
             writing as {`@${currentUser.email.split("@")[0]}`}
           </Text>
 
           <Textarea
             variant="unstyled"
             placeholder="Title"
-            fontSize={["4xl", "5xl"]}
-            mt="15"
+            fontSize={["3xl", "5xl"]}
+            mt="10"
             resize="vertical"
-            rows={1}
+            rows={2}
             onChange={(e) => setTitle(e.target.value)}
             color={'black'}
           />
           <Textarea
             variant="unstyled"
             placeholder="Subtitle"
-            fontSize={["xl", "2xl"]}
+            fontSize={["2xl", "3xl"]}
             resize="vertical"
-            rows={1}
+            rows={2}
             color={'black'}
             onChange={(e) => setSubtitle(e.target.value)}
           />
@@ -107,7 +107,7 @@ console.log(currentUser)
           <Textarea
             variant="unstyled"
             placeholder="Write your story here"
-            fontSize={["md", "lg"]}
+            fontSize={["xl", "2xl"]}
             resize="vertical"
 
             onChange={(e) => setArticleContent(e.target.value)}
@@ -183,3 +183,4 @@ console.log(currentUser)
 }
 
 export default WriteArticle;
+
