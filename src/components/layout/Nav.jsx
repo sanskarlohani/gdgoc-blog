@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import {
   Box,
   Flex,
@@ -8,27 +8,25 @@ import {
   Button,
   Image,
 } from "@chakra-ui/react";
+import { SunIcon, MoonIcon } from "@chakra-ui/icons";
+import { useColorMode } from "@chakra-ui/color-mode";
 import "../../App.css";
 import { Menu, MenuButton, MenuList, MenuItem, MenuGroup, MenuDivider } from "@chakra-ui/menu";
 import { HamburgerIcon, ArrowDownIcon } from "@chakra-ui/icons";
 import { toast } from "react-toastify";
 import { useAuth } from "../../contexts/AuthContext";
 import { useNavigate, Link } from "react-router-dom";
+import { useThemeContext } from "../../contexts/themecontext";
+
 const img = "/image.png"
 
 function Nav() {
+  
   const [width, setWidth] = useState(window.innerWidth);
-
   const navigate = useNavigate();
   const { currentUser, logout } = useAuth();
-  useEffect(() => {
-    const handleResize = () => setWidth(window.innerWidth);
-    window.addEventListener("resize", handleResize);
+  const { colorMode, toggleColorMode } = useThemeContext();
 
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
 
   useEffect(() => {
     const handleResize = () => setWidth(window.innerWidth);
@@ -53,7 +51,7 @@ function Nav() {
 
 
   return (
-    <Box py="3" px={["6", "10"]} width="100%">
+    <Box py="3" px={["6", "10"]} width="100%" >
       <Flex justify="center" align="center">
         <Link to="/">
           <Image src={img} width="150px" height="90px" />
@@ -62,7 +60,10 @@ function Nav() {
 
         <Spacer />
 
-        <Box ml="2">
+        <Box ml="2" display={'flex'} gapX={5}>
+           <Button onClick={toggleColorMode}>
+                {colorMode === 'light' ? <SunIcon/>: <MoonIcon/>}
+              </Button>
           {currentUser ? (
             <Menu>
               {width > 768 ? (

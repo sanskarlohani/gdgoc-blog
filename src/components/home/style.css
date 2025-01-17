@@ -1,0 +1,10 @@
+/* Add this to your CSS file or inline styles */
+.ql-container {
+	direction: ltr; /* Ensure the text aligns from left to right */
+  }
+  
+  .ql-editor {
+	font-size: medium !important;
+	text-align: left; /* Set the text alignment */
+  }
+  

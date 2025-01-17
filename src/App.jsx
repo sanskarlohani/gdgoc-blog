@@ -15,8 +15,11 @@ import SuggestedArticles from "./components/home/RecentArticles";
 import { AuthProvider } from "./contexts/AuthContext";
 import { FirebaseProvider } from "./contexts/FirebaseContext";
 
+
 import { BrowserRouter as Router, Routes } from "react-router-dom";
+
 function App() {
+  
   return (
     <Router>
       <AuthProvider>
