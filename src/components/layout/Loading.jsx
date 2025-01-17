@@ -6,15 +6,15 @@ const MotionBox = motion(Box);
 
 const Loading = () => {
   const styles = [
-    { width: "50px", height: "50px", backgroundColor: "red", borderRadius: "50%", margin: "10px" },
-    { width: "50px", height: "50px", backgroundColor: "blue", borderRadius: "50%", margin: "10px" },
-    { width: "50px", height: "50px", backgroundColor: "green", borderRadius: "50%", margin: "10px" },
-    { width: "50px", height: "50px", backgroundColor: "yellow", borderRadius: "50%", margin: "10px" }
+    { width: "50px", height: "50px", backgroundColor: "red", borderRadius: "50%", margin: "5px" },
+    { width: "50px", height: "50px", backgroundColor: "blue", borderRadius: "50%", margin: "5px" },
+    { width: "50px", height: "50px", backgroundColor: "green", borderRadius: "50%", margin: "5px" },
+    { width: "50px", height: "50px", backgroundColor: "yellow", borderRadius: "50%", margin: "5px" }
   ];
 
   const variants = {
-    start: { opacity: 0.5, scale: 0.8 }, // size of the circle initially
-    end: { opacity: 1, scale: 1.2 } // size of the circle when it's animating
+    start: { opacity: 0.75, scale: 0.5 }, // size of the circle initially
+    end: { opacity: 1, scale: 1.0 } // size of the circle when it's animating
   };
 
   return (
