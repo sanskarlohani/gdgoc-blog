@@ -1,5 +1,8 @@
 {
   "projects": {
-    "default": "medium-a5f6d"
-  }
+    "default": "medium-a5f6d",
+    "dev": "gssoc-issue-solve"
+  },
+  "targets": {},
+  "etags": {}
 }

@@ -4,12 +4,12 @@ import { Link } from "react-router-dom";
 import Nav from "../layout/Nav";
 import Footer from "../layout/Footer";
 import gdgLogo from "../../assets/gdg-logo.png"; // Import the GDG logo
-import Slider from "react-slick";
 import { motion } from "framer-motion";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import TeamPage from "./Team";
 import MarqueeCarousel from "./Events";
+import { useThemeContext } from "../../contexts/themecontext";
 
 const carouselItems = [
   {
@@ -75,7 +75,7 @@ const logoVariants = {
 
 export default function Dashboard() {
 
-
+  const { colorMode } = useThemeContext(); 
   const settings = {
     dots: true,
     infinite: true,
@@ -87,7 +87,8 @@ export default function Dashboard() {
   };
 
   return (
-    <Box display={'flex'} justifyContent="center" alignItems="center" width={'100%'}>
+    <Box display={'flex'} justifyContent="center" alignItems="center" width={'100%'}  bg={colorMode === "light" ? "white" : "#18181a"}
+    color={colorMode === "light" ? "black" : "white"}>
       <Box
         width={["100vw", "100vw", null, "100vw"]}
         display="flex"

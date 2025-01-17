@@ -1,4 +1,5 @@
 
+import { useThemeContext } from '../../contexts/themecontext';
 import { Box, Heading, Text, SimpleGrid,  VStack } from '@chakra-ui/react';
 import { Image } from '@chakra-ui/react';
 const teamMembers = [
@@ -46,8 +47,10 @@ const teamMembers = [
 ];
 
 const TeamPage = () => {
+  const {colorMode}=useThemeContext();
   return (
-    <Box maxW="1200px" mx="auto" py="10" px="6">
+    <Box maxW="1200px" mx="auto" py="10" px="6"  bg={colorMode === "light" ? "white" : "#18181a"}
+    color={colorMode === "light" ? "black" : "white"}>
       <Heading textAlign="center" mb="10" fontSize="4xl">
         Meet Our Team
       </Heading>
@@ -61,7 +64,8 @@ const TeamPage = () => {
             borderRadius="lg"
             boxShadow="md"
             align="center"
-            bg="white"
+            bg={colorMode === "light" ? "white" : "#18181a"}
+            color={colorMode === "light" ? "black" : "white"}
             _hover={{ transform: 'scale(1.05)', transition: '0.3s' }}
           >
            <Image

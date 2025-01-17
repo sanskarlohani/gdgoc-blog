@@ -90,6 +90,7 @@ console.log(currentUser)
             resize="vertical"
             rows={1}
             onChange={(e) => setTitle(e.target.value)}
+            color={'black'}
           />
           <Textarea
             variant="unstyled"
@@ -97,6 +98,7 @@ console.log(currentUser)
             fontSize={["xl", "2xl"]}
             resize="vertical"
             rows={1}
+            color={'black'}
             onChange={(e) => setSubtitle(e.target.value)}
           />
 
@@ -107,8 +109,10 @@ console.log(currentUser)
             placeholder="Write your story here"
             fontSize={["md", "lg"]}
             resize="vertical"
+
             onChange={(e) => setArticleContent(e.target.value)}
             rows={8}
+            color={'black'}
           />
 
           <Divider my={[6, 10]} />
