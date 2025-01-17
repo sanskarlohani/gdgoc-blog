@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Poppins:wght@400;700&family=Merich&display=swap');
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+h1 {
+    font-family: 'Poppins', sans-serif;
+}
+
+h2 {
+    font-family: 'Merich', serif;
+}
+
+@font-face {
+    font-family: 'Wasted Vindey';
+    src: url('/C:/Users/slaye/GDG/gdgoc-blog/fonts/wasted-vindey.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Eden Meadow';
+    src: url('/C:/Users/slaye/GDG/gdgoc-blog/fonts/eden-meadow.ttf') format('truetype');
+}
+
+.custom-font-1 {
+    font-family: 'Wasted Vindey', sans-serif;
+}
+
+.custom-font-2 {
+    font-family: 'Eden Meadow', sans-serif;
+}
