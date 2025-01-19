@@ -28,7 +28,8 @@ function SuggestedArticles() {
         const filteredArticles = data.docs
           .filter(e => e.data().authorID !== currentUser.uid)
           .map(e => e.data());
-        setFilteredArticles(filteredArticles);
+          setArticles(filteredArticles)
+        
       } catch (err) {
         console.log(err);
       }
@@ -70,12 +71,12 @@ function SuggestedArticles() {
     <Box my={[2, 5, 10]} width={["100%", "80%", "80%", "50%"]}>
       <InputGroup
         padding={[4, 6, 8]}
-        borderRadius="md"
+        rounded={20}
         w={["100%", "100%", "100%", "100%"]}
         borderWidth="1px"
         borderColor="gray.300"
         bg="white"
-        _hover={{ borderColor: "gray.400" }}
+        _hover={{ borderColor: "gray.900" }}
         _focus={{ borderColor: "blue.400" }}
         width="full"
       >
@@ -87,6 +88,7 @@ function SuggestedArticles() {
           borderRadius="md"
           fontSize={["lg", "xl", "2xl"]}
           onChange={(e) => handleSearch(e)}
+          rounded={20}
         />
       </InputGroup>
     </Box>
@@ -107,7 +109,7 @@ function SuggestedArticles() {
             No articles found
           </Text>
         ) : null}
-        {filteredArticles.map((el) => (
+        {articles.map((el) => (
           <Box
             key={el.articleID}
             as={Link}
@@ -119,7 +121,7 @@ function SuggestedArticles() {
             borderRadius="md"
             shadow="sm"
             transition="all 0.2s"
-            _hover={{ shadow: "lg", bg: "gray.50" }}
+            _hover={{ shadow: "lg", bg: "gray.600" }}
           >
             <Text fontSize={["sm", "md"]} color="blue.500">
               {el.authorUsername}

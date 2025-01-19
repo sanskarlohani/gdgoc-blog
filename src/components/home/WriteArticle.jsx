@@ -16,8 +16,10 @@ import { useAuth } from "../../contexts/AuthContext";
 import { useFirebase } from "../../contexts/FirebaseContext";
 
 import { v4 as uuidv4 } from "uuid";
+import { useThemeContext } from "../../contexts/themecontext";
 
 function WriteArticle() {
+  const {colorMode}=useThemeContext();
   const { currentUser } = useAuth();
   const { postArticle } = useFirebase();
   const [title, setTitle] = useState("");
@@ -64,7 +66,8 @@ console.log(currentUser)
   };
 
   return (
-    <Box display="flex" justifyContent="center" alignItems="center">
+    <Box display="flex" justifyContent="center" alignItems="center" bg={colorMode === "light" ? "white" : "#18181a"}
+    color={colorMode === "light" ? "black" : "white"}>
       <Box
         width={["100vw", null, null, "70vw"]}
         display="flex"
