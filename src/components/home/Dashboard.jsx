@@ -10,6 +10,7 @@ import "slick-carousel/slick/slick-theme.css";
 import TeamPage from "./Team";
 import MarqueeCarousel from "./Events";
 import { useThemeContext } from "../../contexts/themecontext";
+import { TypeAnimation } from "react-type-animation";
 
 const carouselItems = [
   {
@@ -75,7 +76,7 @@ const logoVariants = {
 
 export default function Dashboard() {
 
-  const { colorMode } = useThemeContext(); 
+  const { colorMode } = useThemeContext();
   const settings = {
     dots: true,
     infinite: true,
@@ -87,8 +88,8 @@ export default function Dashboard() {
   };
 
   return (
-    <Box display={'flex'} justifyContent="center" alignItems="center" width={'100%'}  bg={colorMode === "light" ? "white" : "#18181a"}
-    color={colorMode === "light" ? "black" : "white"}>
+    <Box display={'flex'} justifyContent="center" alignItems="center" width={'100%'} bg={colorMode === "light" ? "white" : "#18181a"}
+      color={colorMode === "light" ? "black" : "white"}>
       <Box
         width={["100vw", "100vw", null, "100vw"]}
         display="flex"
@@ -114,13 +115,23 @@ export default function Dashboard() {
                 alignItems="flex-start"
                 flexDirection="column"
               >
-                <Text fontSize={["4xl", "5xl"]} mt={["6", null, "none"]}>
-                  A place to write, read, and connect
-                </Text>
-                <Text fontSize={["lg", "xl"]} mt="4">
-                  It's easy and free to post your thinking on any topic and
-                  connect with millions of readers.
-                </Text>
+                
+                <TypeAnimation
+              
+                  sequence={[
+                    // Same substring at the start will only be typed out once, initially
+                    'A place to write, read, and connect',
+                    1000,// wait 1s before replacing "Mice" with "Hamsters"
+                    "It's easy and free to post your thinking on any topic",
+                    1000,
+                     "connect with your fellow  readers"
+                  ]}
+                  wrapper="span"
+                  speed={50}
+                  style={{ fontSize: '2em', display: 'inline-block' }}
+                  repeat={Infinity}
+                />
+               
                 <Box display="flex" justifyContent="center" alignItems="center" gap={5} >
                   <Button
                     as={Link}
@@ -170,12 +181,12 @@ export default function Dashboard() {
           px={0}
           textAlign={'center'}
         >
-          
-            Previous Event Photos
+
+          Previous Event Photos
 
           <MarqueeCarousel />
         </Box>
-        
+
         <TeamPage />
         <Footer />
       </Box>

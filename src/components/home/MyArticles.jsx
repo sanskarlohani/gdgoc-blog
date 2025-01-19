@@ -14,6 +14,7 @@ import LoadingSmall from "../layout/LoadingSmall";
 import { useFirebase } from "../../contexts/FirebaseContext";
 import { Link } from "react-router-dom";
 import { format } from "date-fns";
+import { useThemeContext } from "../../contexts/themecontext";
 
 function MyArticles() {
   const { getMyArticles, deleteArticle } = useFirebase();
@@ -23,7 +24,7 @@ function MyArticles() {
   const [selectValue, setSelectValue] = useState("all");
   const [deletingIDs, setDeletingIDs] = useState([]);
   const [error, setError] = useState(null);
-
+  const {colorMode}=useThemeContext();
 
   const fetchArticles = async () => {
     setLoading(true);
