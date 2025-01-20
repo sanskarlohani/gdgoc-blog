@@ -108,7 +108,7 @@ function SuggestedArticles() {
         px={[2, 4]}
         width={["90%", "80%", "70%", "60%"]}
       >
-        {filteredArticles.length === 0 ? (
+        {articles.length === 0 ? (
           <Text fontSize="lg" textAlign="center">
             No articles found
           </Text>
