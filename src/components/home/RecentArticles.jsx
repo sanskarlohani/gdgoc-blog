@@ -11,8 +11,10 @@ import { useFirebase } from "../../contexts/FirebaseContext";
 import { useAuth } from "../../contexts/AuthContext";
 import { Link } from "react-router-dom";
 import Nav from "../layout/Nav";
+import useThemeContext from '../../contexts/themecontext'
 
 function SuggestedArticles() {
+  const {colorMode}=useThemeContext();
   const { currentUser } = useAuth();
   const { getAllPublicArticles } = useFirebase();
   const [articles, setArticles] = useState([]);
