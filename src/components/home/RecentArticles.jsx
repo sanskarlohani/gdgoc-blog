@@ -18,7 +18,7 @@ function SuggestedArticles() {
   const { currentUser } = useAuth();
   const { getAllPublicArticles } = useFirebase();
   const [articles, setArticles] = useState([]);
-  const [filteredArticles, setFilteredArticles] = useState([]);
+  const [originalArticles, setOriginalArticles] = useState([]);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -26,12 +26,11 @@ function SuggestedArticles() {
       try {
         setLoading(true);
         const data = await getAllPublicArticles();
-        setArticles(data.docs.map((el) => el.data()));
-        const filteredArticles = data.docs
-          .filter(e => e.data().authorID !== currentUser.uid)
-          .map(e => e.data());
-          setArticles(filteredArticles)
+        const allArticles = data.docs.map((el) => el.data());
+        const filteredArticles = allArticles.filter(e => e.authorID !== currentUser.uid);
         
+        setArticles(filteredArticles);
+        setOriginalArticles(filteredArticles); // Store the original data
       } catch (err) {
         console.log(err);
       }
@@ -47,12 +46,16 @@ function SuggestedArticles() {
 
   const handleSearch = (e) => {
     const searchValue = e.target.value;
-    const filteredResults = articles.filter((article) => {
-      return article.content.title
-        .toLowerCase()
-        .includes(searchValue.toLowerCase());
-    });
-    setFilteredArticles(filteredResults);
+    if (searchValue.trim() === "") {
+      setArticles(originalArticles); // Reset to original articles if search is empty
+    } else {
+      const filteredResults = originalArticles.filter((article) => {
+        return article.content.title
+          .toLowerCase()
+          .includes(searchValue.toLowerCase());
+      });
+      setArticles(filteredResults);
+    }
   };
 
   return (
@@ -91,8 +94,10 @@ function SuggestedArticles() {
           w={["100%", "100%", "100%", "100%"]}
           borderRadius="md"
           fontSize={["lg", "xl", "2xl"]}
-          onChange={(e) => handleSearch(e)}
+          onChange={handleSearch} // Simplified the onChange call
           rounded={20}
+          bg={colorMode === "light" ? "white" : "#18181a"}
+          color={colorMode === "light" ? "black" : "white"}
         />
       </InputGroup>
     </Box>
