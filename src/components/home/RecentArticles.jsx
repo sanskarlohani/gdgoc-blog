@@ -62,6 +62,8 @@ function SuggestedArticles() {
     mx={["4", "8", "12", "16"]}
     maxW="100%"
     m="auto"
+    bg={colorMode === "light" ? "white" : "#18181a"}
+    color={colorMode === "light" ? "black" : "white"}
   >
     <Nav />
     <Text fontSize={["xl", "2xl", "2xl"]} fontWeight="bold" mb={4}>

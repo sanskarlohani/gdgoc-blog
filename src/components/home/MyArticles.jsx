@@ -5,6 +5,7 @@ import {
   Button,
   Badge,
 } from "@chakra-ui/react";
+import { ChevronDownIcon } from "@chakra-ui/icons";
 import { Select } from "@chakra-ui/select";
 import { Divider } from "@chakra-ui/layout";
 import { StarIcon, DeleteIcon, EditIcon, LockIcon } from "@chakra-ui/icons";
@@ -75,7 +76,8 @@ function MyArticles() {
     : articles.filter((el) => el.visibility === selectValue);
 
   return (
-    <Box display="flex" justifyContent="center" alignItems="center">
+    <Box display="flex" justifyContent="center" alignItems="center"  bg={colorMode === "light" ? "white" : "#18181a"}
+    color={colorMode === "light" ? "black" : "white"}>
       <Box width={["100vw", null, null, "70vw"]} flexDirection="column">
         <Nav />
         {loading ? (
@@ -84,7 +86,9 @@ function MyArticles() {
           <Box mx="6">
             <Text fontSize="3xl" mb="4">Articles You Have Written</Text>
             {error && <Text color="red.500" mb="4">{error}</Text>}
-            <Select value={selectValue} onChange={(e) => setSelectValue(e.target.value)} mb="6">
+            <Select value={selectValue} onChange={(e) => setSelectValue(e.target.value)} mb="6"  bg={colorMode === "light" ? "white" : "#18181a"}
+            icon={<ChevronDownIcon/>}
+    color={colorMode === "light" ? "black" : "white"}>
               <option value="all">All</option>
               <option value="public">Public</option>
               <option value="private">Private</option>
@@ -99,9 +103,11 @@ function MyArticles() {
                 <Text opacity="0.6">{el.content?.subtitle || "No subtitle provided."}</Text>
                 <Box mt="4">
                   {el.visibility !== "private" && (
-                    <Text fontWeight="semibold" color="yellow.500">
-                      {el.stars} <StarIcon color="yellow.500" />
-                    </Text>
+                     <Text fontWeight="semibold" color="yellow.500" fontSize="sm">
+                     {el.stars}
+                     <StarIcon color="yellow.500" boxSize={["3", "4", "5"]} />
+                   </Text>
+                   
                   )}
                   <Text>{el.authorUsername}</Text>
                   <Text>{el.when ? format(new Date(el.when), "MMMM dd, yyyy") : "Date not available"}</Text>
@@ -112,7 +118,8 @@ function MyArticles() {
                     to={`/edit-article/${el.articleID}`}
                     variant="outline"
                     rightIcon={<EditIcon />}
-                    aria-label="Edit article"
+                    aria-label="Edit article" 
+                    color={colorMode === "light" ? "black" : "white"}
                   >
                     Edit
                   </Button>
