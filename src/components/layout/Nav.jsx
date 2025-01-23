@@ -51,7 +51,8 @@ function Nav() {
 
 
   return (
-    <Box py="3" px={["6", "10"]} width="100%" >
+    <Box  px={["6", "10"]} width="100%"  bg={colorMode === "light" ? "white" : "#18181a"}
+    color={colorMode === "light" ? "black" : "white"} zIndex={999}>
       <Flex justify="center" align="center">
         <Link to="/">
           <Image src={img} width="150px" height="90px" />

@@ -121,14 +121,20 @@ export default function Dashboard() {
                   sequence={[
                     // Same substring at the start will only be typed out once, initially
                     'A place to write, read, and connect',
-                    1000,// wait 1s before replacing "Mice" with "Hamsters"
+                    2000,// wait 1s before replacing "Mice" with "Hamsters"
                     "It's easy and free to post your thinking on any topic",
-                    1000,
+                    2000,
                      "connect with your fellow  readers"
                   ]}
                   wrapper="span"
                   speed={50}
-                  style={{ fontSize: '2em', display: 'inline-block' }}
+                  style={{
+                    fontSize: '1.2em', // Larger default font size
+                    display: 'inline-block',
+                    textAlign: 'center',
+                    lineHeight: '1.5em', // Add proper spacing between lines
+                    whiteSpace: 'normal', // Allow text wrapping for small screens
+                  }}
                   repeat={Infinity}
                 />
                
