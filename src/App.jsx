@@ -17,6 +17,8 @@ import { FirebaseProvider } from "./contexts/FirebaseContext";
 
 
 import { BrowserRouter as Router, Routes } from "react-router-dom";
+import Event from "./components/home/Event";
+import EventPage from "./components/home/EventPage";
 
 function App() {
   
@@ -27,7 +29,9 @@ function App() {
           <Routes>
             {/* Home routes */}
             <Route exact path="/" element={<Dashboard />} />
+            <Route exact path="/events" element={<Event/>}/>
             <Route exact path="/suggested" element={<SuggestedArticles />} />
+            <Route path="/event/:id" element={<EventPage />} /> 
             <Route exact path="/write" element={
               <PrivateRoute>
                 <WriteArticle />

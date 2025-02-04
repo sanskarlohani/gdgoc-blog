@@ -52,7 +52,7 @@ function Nav() {
 
   return (
     <Box  px={["6", "10"]} width="100%"  bg={colorMode === "light" ? "white" : "#18181a"}
-    color={colorMode === "light" ? "black" : "white"} zIndex={999}>
+    color={colorMode === "light" ? "black" : "white"} >
       <Flex justify="center" align="center">
         <Link to="/">
           <Image src={img} width="150px" height="90px" />

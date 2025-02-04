@@ -4,7 +4,7 @@ import { Box, Heading, Text, SimpleGrid,  VStack } from '@chakra-ui/react';
 import { Image } from '@chakra-ui/react';
 const teamMembers = [
   {
-    name: 'tanushree Tripathy',
+    name: 'Tanushree Tripathy',
     position: 'Organiser',
     photo: '/lead.jpg',
   },
@@ -30,12 +30,12 @@ const teamMembers = [
     photo: '/jd.jpg',
   },
   {
-    name: 'manish kumar jha',
+    name: 'Manish kumar Jha',
     position: 'AI/Ml Lead',
     photo: '/manish.JPG',
   },
   {
-    name: 'jaydeep Dash',
+    name: 'Jaydeep Dash',
     position: 'Design Lead',
     photo: '/jaydeep_dash.jpg',
   },
