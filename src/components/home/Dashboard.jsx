@@ -90,12 +90,14 @@ export default function Dashboard() {
   
                     <Box
                       display="flex"
+                      flexDirection={['column','row']}
                       justifyContent="center"
                       alignItems="center"
                       gap={5}
                       bg={colorMode === "light" ? "white" : "#18181a"}
                       color={colorMode === "light" ? "black" : "white"}
                     >
+                      <Box>
                       <Button
                         as={Link}
                         to="/write"
@@ -120,6 +122,8 @@ export default function Dashboard() {
                       >
                         Discover More
                       </Button>
+                      </Box>
+                     
                       <Button
                         as={Link}
                         to="/events"
