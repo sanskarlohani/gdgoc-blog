@@ -150,7 +150,7 @@ const Event = () => {
             <Heading fontSize={'5xl'}>EVENTS</Heading>
             <Box maxW="1200px" mx="auto" py="10" px="6" >
               <Heading textAlign="center" mb="10" fontSize="4xl">
-                Meet Our Team
+                Events
               </Heading>
               <SimpleGrid columns={[3]} spacing="10" gap={10} >
                 {events.map((member, index) => (
@@ -177,7 +177,6 @@ const Event = () => {
                     <Text fontWeight="bold" fontSize="lg">
                       {member.name}
                     </Text>
-                    <Text color="gray.500" >{member.description}</Text>
                     <Button rounded={'full'} bg={'green.500'} onClick={()=>handleRegisterClick(member.id) }>Explore</Button>
                   </VStack>
                 ))}
