@@ -3,47 +3,37 @@ import { Box, Heading, Text, Flex, SimpleGrid, VStack, Image, Button } from '@ch
 import { TypeAnimation } from 'react-type-animation';
 import { ParallaxLayer, Parallax } from '@react-spring/parallax';
 import { events } from '../../Eventdetails';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import Nav from '../layout/Nav';
+import { useThemeContext } from '../../contexts/themecontext';
+
 const Event = () => {
   const ref = useRef();
-  const navigate = useNavigate(); // Hook for programmatic navigation
+  const navigate = useNavigate();
+  const { colorMode } = useThemeContext();
 
   const handleRegisterClick = (id) => {
-    navigate(`/event/${id}`); // Redirect to the specific event page
+    navigate(`/event/${id}`);
   };
 
   return (
-    <Parallax pages={4} ref={ref} style={{ margin: 0, padding: 0 }} >
+    <Parallax pages={3} ref={ref} style={{ margin: 0, padding: 0 }}>
       <Box w="100vw" overflowY="auto" scrollBehavior="smooth" bg="gray.50">
-      <Nav/>
-        <ParallaxLayer
-          offset={0}
-          speed={1}
-          factor={2}>
+        <Nav />
+
+        {/* Hero Section */}
+        <ParallaxLayer offset={0} speed={1} factor={2}>
           <Box
             minH="100vh"
             w="100%"
             bg="blue.500"
             display="flex"
-            justifyContent={['center', 'flex-start']}
+            justifyContent="center"
             alignItems="center"
-            pl={[15, 15, 15]}
-            position="relative"
             textAlign="center"
+            px={[4, 6, 10]}
           >
-            <Box
-              minH="10rem"
-              lineHeight="1.2"
-              fontSize={['2.5rem', '5rem', '6rem']}
-              fontWeight="bold"
-              color="white"
-              whiteSpace="nowrap"
-              overflow="hidden"
-              textAlign={'center'}
-              display={'flex'}
-              justifyContent={'center'}
-            >
+            <Box fontSize={['2rem', '4rem', '6rem']} fontWeight="bold" color="white">
               <TypeAnimation
                 sequence={[
                   "DEVELOPER SUMMIT 2.0",
@@ -56,110 +46,90 @@ const Event = () => {
                 wrapper="div"
                 cursor={true}
                 repeat={Infinity}
-
               />
             </Box>
           </Box>
-
         </ParallaxLayer>
 
-        <ParallaxLayer offset={0.95}
-          speed={1}
-          factor={0.9}>
-          <Box w="100%" p={[4, 6, 10]} display={'flex'} gapY={10} flexDirection={'column'}>
-
-
+        {/* Who We Are */}
+        <ParallaxLayer offset={0.95} speed={1} factor={0.9}>
+          <Box w="100%" p={[4, 6, 10]} display="flex" flexDirection="column" gap={10}>
             <Flex
-              direction={['column', 'row']}
+              direction="column"
               align="center"
               justify="center"
-              gap={[4, 8, '10%']}
-              wrap="wrap"
+              textAlign="center"
+              bgImage={colorMode === "light" ? "url('/IO_heroes.jpg')" : "url('/io.jpg')"}
+              bgSize="cover"
+              bgPosition="center"
+              minH={['50vh', '80vh']}
+              p={[4, 6, 10]}
             >
-              <Box
-                p={[4, 6]}
-                color="blackAlpha.700"
-                textAlign="center"
-                minH={['auto', '100vh']}
-                display="flex"
-                flexDirection="column"
-                justifyContent="center"
-                // bgGradient={'to-r, teal.400, blue.500, purple.600)"'}
-                bgGradient={'to-b blue green '}
-              >
-                <Heading size={['xl', '10xl']} fontSize={['5xl', '20xl']} mb={4}>Who Are We?</Heading>
-              </Box>
+              <Heading fontSize={['3xl', '5xl', '6xl']} color="black">Who Are We?</Heading>
+            </Flex>
 
-
-            </Flex >
-            <Flex h={'96'} gapX={20}>
+            <Flex direction={['column', 'column', 'row']} gap={8} align="center" justify="center">
               <Box
                 bg="red.500"
                 rounded="xl"
                 p={[4, 6]}
                 color="white"
                 textAlign="center"
-                minH={['300px', '400px', '650px']}
-                minW={['90%', '80%', '650px']}
-                display="flex"
-                flexDirection="column"
-                justifyContent="center"
+                minH={['auto', '400px']}
+                w={['100%', '80%', '45%']}transition="all 0.3s ease-in-out"
+                _hover={{
+                  transform: ['none', 'scale(1.1)'],
+                }}
               >
-                <Text fontSize={['sm', 'md', 'lg']}>
+                <Text fontSize={['md', 'lg']}>
                   We are Google Developer Groups on Campus (GDG OC), a vibrant community dedicated to fostering innovation,
-                  collaboration, and tech skill enhancement. As part of a global network, we provide students with access to
-                  resources, mentorship, and hands-on learning experiences.
+                  collaboration, and tech skill enhancement.
                 </Text>
-                <Text fontSize={['sm', 'md', 'lg']} mt={4}>
+                <Text fontSize={['md', 'lg']} mt={4}>
                   Our mission is to empower students to grow as developers, creators, and future leaders in the tech industry.
-                  GDG OC offers numerous opportunities for learning and professional growth.
                 </Text>
               </Box>
 
               <Box
                 bg="green.500"
                 rounded="xl"
-                p={[4, 6, 10]}
+                p={[4, 6]}
                 color="white"
                 textAlign="center"
-                minH={['300px', '400px', '650px']}
-                display="flex"
-                flexDirection="column"
-                justifyContent="center"
+                minH={['auto', '400px']}
+                w={['100%', '80%', '45%']}
+                transition="all 0.3s ease-in-out"
+                _hover={{
+                  transform: ['none', 'scale(1.1)'],
+                }}
               >
-                <Heading size={['xl', '2xl']} mb={4}>WHAT'S COOKING?</Heading>
-                <Text fontSize={['sm', 'md', 'lg']}>
-                  The "Developer Summit 2.0" is an annual two-day event designed to bring together tech enthusiasts, developers,
-                  and industry experts. It features interactive workshops, keynote sessions, panel discussions, coding competitions,
+                <Heading fontSize={['xl', '2xl']} mb={4}>WHAT'S COOKING?</Heading>
+                <Text fontSize={['md', 'lg']}>
+                  The "Developer Summit 2.0" is an annual event featuring workshops, keynotes, panel discussions, coding competitions,
                   and networking opportunities.
                 </Text>
-                <Text fontSize={['sm', 'md', 'lg']} mt={4}>
-                  Participants will gain hands-on experience, showcase their talents, and connect with like-minded individuals.
-                  The summit culminates in an exciting hackathon challenge, providing a platform for creativity and problem-solving.
+                <Text fontSize={['md', 'lg']} mt={4}>
+                  The summit culminates in an exciting hackathon challenge, fostering creativity and problem-solving.
                 </Text>
               </Box>
             </Flex>
-
           </Box>
         </ParallaxLayer>
 
-        <ParallaxLayer offset={1.7}
-          speed={0.5}
-          factor={1}>
-          <Box display={'flex'} flexDirection={'column'} justifyContent={'center'} alignItems={'center'} gap={20}>
-            <Heading fontSize={'5xl'}>EVENTS</Heading>
-            <Box maxW="1200px" mx="auto" py="10" px="6" >
-              <Heading textAlign="center" mb="10" fontSize="4xl">
-                Events
-              </Heading>
-              <SimpleGrid columns={[3]} spacing="10" gap={10} >
-                {events.map((member, index) => (
+        {/* Events Section */}
+        <ParallaxLayer offset={1.7} speed={0.5} factor={1}>
+          <Box display="flex" flexDirection="column" justifyContent="center" alignItems="center" gap={10}>
+            <Heading fontSize={['3xl', '4xl', '5xl']}>EVENTS</Heading>
+
+            <Box maxW="1200px" w="100%" px={[4, 6, 10]}>
+              
+
+              <SimpleGrid columns={[1, 2, 3]} spacing={6}>
+                {events.map((event, index) => (
                   <VStack
-                  h={'150'}
-                  w={'150'}
                     key={index}
-                    spacing="4"
-                    p="6"
+                    spacing={4}
+                    p={6}
                     borderWidth="1px"
                     borderRadius="lg"
                     boxShadow="md"
@@ -167,28 +137,32 @@ const Event = () => {
                     _hover={{ transform: 'scale(1.05)', transition: '0.3s' }}
                   >
                     <Image
-                      height="150px"
-                      fit={'cover'}
+                      height={['100px', '150px']}
+                      width={['100px', '150px']}
+                      fit="cover"
                       aspectRatio={1}
-                      borderRadius={'full'}
-
-                      src={member.photo}
+                      borderRadius="full"
+                      src={event.photo}
                     />
-                    <Text fontWeight="bold" fontSize="lg">
-                      {member.name}
+                    <Text fontWeight="bold" fontSize={['md', 'lg']}>
+                      {event.name}
                     </Text>
-                    <Button rounded={'full'} bg={'green.500'} onClick={()=>handleRegisterClick(member.id) }>Explore</Button>
+                    <Button
+                      rounded="full"
+                      bg="green.500"
+                      onClick={() => handleRegisterClick(event.id)}
+                      p={2}
+                    >
+                      Explore
+                    </Button>
                   </VStack>
                 ))}
               </SimpleGrid>
             </Box>
-
           </Box>
         </ParallaxLayer>
       </Box>
-
     </Parallax>
-
   );
 };
 
