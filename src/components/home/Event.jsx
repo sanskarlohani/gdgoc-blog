@@ -27,7 +27,7 @@ const Event = () => {
       bgSize="cover"
       bgPosition="center"
     >
-      <AnimatePresence mode="sync">
+      <AnimatePresence mode="wait">
         {showAnimation ? (
           <motion.div
             key="welcome"

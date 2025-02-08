@@ -76,18 +76,21 @@ const List = () => {
         maxW="1200px"
         align="center"
       >
-        <AnimatePresence mode="wait">
+        <AnimatePresence mode="sync">
           {currentEvents.map((event, index) => (
             <motion.div
-              key={index}
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.8 }}
-              transition={{ duration: 0.5 }}
+              key={event.id} // Changed to use `event.id` for consistency
+              initial={{ opacity: 0, y: 20 }}  // Start with slight offset on Y-axis
+              animate={{ opacity: 1, y: 0 }}    // Animate back to original position
+              exit={{ opacity: 0, y: -20 }}     // Slide out to the top
+              transition={{ 
+                duration: 0.6,                // Longer transition for smoothness
+                ease: "easeOut"               // Use "easeOut" for smooth deceleration
+              }}
               style={{ position: "relative", zIndex: 1 }}
             >
               <VStack
-                spacing={20}
+                spacing={6} // Reduced space to make the layout more compact
                 p={6}
                 borderWidth="1px"
                 borderRadius="lg"
@@ -96,10 +99,10 @@ const List = () => {
                 bg="white"
                 maxW="400px"
                 color="black"
-                h="500px" // Ensuring all cards have the same height
-                minH="520px"//an use minH for a minimum height constraint
-                position="relative" // Needed to ensure absolute positioning works for the button
-                overflow="hidden" // Prevents any overflow
+                h="500px"
+                minH="500px"
+                position="relative"
+                overflow="hidden"
               >
                 <Text
                   fontWeight="bold"
@@ -125,7 +128,7 @@ const List = () => {
                   p={3}
                   onClick={() => navigate(`/event/${event.id}`)}
                   position="absolute"
-                  bottom={2} // Fixed positioning of the button at the bottom
+                  bottom={4} // Adjusted bottom position for consistency
                   left="50%" // Center button horizontally
                   transform="translateX(-50%)" // To truly center the button
                 >
@@ -146,7 +149,7 @@ const List = () => {
         transform="translateY(-50%)"
         onClick={prevEvent}
         color="white"
-		zIndex={20}
+        zIndex={20}
         _hover={{ bg: "gray.800" }}
         _active={{ bg: "gray.900" }}
       >
@@ -160,7 +163,7 @@ const List = () => {
         transform="translateY(-50%)"
         onClick={nextEvent}
         color="white"
-		zIndex={20}
+        zIndex={20}
         _hover={{ bg: "gray.800" }}
         _active={{ bg: "gray.900" }}
       >
