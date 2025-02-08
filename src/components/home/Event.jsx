@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { Box } from "@chakra-ui/react";
+import { Box, Heading } from "@chakra-ui/react";
 import { motion, AnimatePresence } from "framer-motion";
 import List from "./list";
 import Nav from "../layout/Nav";
+import { useThemeContext } from "../../contexts/themecontext";
 
 const Event = () => {
   const [showAnimation, setShowAnimation] = useState(true);
-
+   const { colorMode } = useThemeContext();
   useEffect(() => {
     const timer = setTimeout(() => setShowAnimation(false), 3000);
     return () => clearTimeout(timer);
@@ -23,7 +24,7 @@ const Event = () => {
       alignItems="center"
       textAlign="center"
       px={[4, 6, 10]}
-      bgImage="url(/abstract.jpg)"
+      bgImage={`url(${colorMode === "light" ? "/abstract.jpg" : ""})`}
       bgSize="cover"
       bgPosition="center"
     >
@@ -36,9 +37,8 @@ const Event = () => {
             exit={{ opacity: 0, scale: 0.8, transition: { duration: 1 } }}
             transition={{ duration: 0.5 }}
           >
-            <h1 style={{ fontSize: "3rem", fontWeight: "bold" }}>
-              Welcome to Developers Summit 2.0
-            </h1>
+            
+            <Heading fontSize={"3rem"} fontWeight={"bold"} color={colorMode === "light" ? "black" : "white"} >  Welcome to Developers Summit 2.0</Heading>
           </motion.div>
         ) : (
           <motion.div

@@ -49,7 +49,7 @@ function Nav() {
   };
 
   return (
-    <Box  px={["6", "10"]} width="100%"  bgImage={`url(${colorMode === "light" ? "/abstract.jpg" : "/dark.jpg"})`}
+    <Box  px={["6", "10"]} width="100%"  
     position={'sticky'}
     color={colorMode === "light" ? "black" : "white"} >
       <Flex justify="center" align="center">
