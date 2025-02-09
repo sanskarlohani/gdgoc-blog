@@ -25,8 +25,8 @@ function MarqueeCarousel() {
         gap="1" 
         sx={{
           "@media screen and (max-width: 768px)": {
-            width: "100%", /* Prevents overflow on mobile */
-            animationDuration: "20s", // Adjust speed for smaller screens
+            width: "100%", 
+            animationDuration: "20s", 
           },
         }}
       >
@@ -34,7 +34,7 @@ function MarqueeCarousel() {
           <Box
             key={index}
             flexShrink={0}
-            width={["calc(100vw / 2)", "calc(100vw / 4)"]} /* Dynamically size the images */
+            width={["calc(100vw / 2)", "calc(100vw / 4)"]} 
             display="flex"
             justifyContent="center"
             alignItems="center"

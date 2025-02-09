@@ -24,7 +24,7 @@ const Event = () => {
       alignItems="center"
       textAlign="center"
       px={[4, 6, 10]}
-      bgImage={`url(${colorMode === "light" ? "/abstract.jpg" : ""})`}
+     bgImage={"url('https://gdsc.iiitd.edu.in/static/media/lower_yellow_square.bdeae0bc6d849480de1edb3fe12c1660.svg')"}
       bgSize="cover"
       bgPosition="center"
     >

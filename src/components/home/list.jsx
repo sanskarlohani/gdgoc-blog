@@ -14,11 +14,11 @@ const List = () => {
   const navigate = useNavigate();
 
   const nextEvent = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % 3); 
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % events.length); 
   };
 
   const prevEvent = () => {
-    setCurrentIndex((prevIndex) => (prevIndex - 1 + 3) % 3); 
+    setCurrentIndex((prevIndex) => (prevIndex - 1 + events.length) % events.length); 
   };
 
   useEffect(() => {
@@ -35,7 +35,7 @@ const List = () => {
     } else {
       setCurrentEvents(events.slice(currentIndex, currentIndex + 1)); 
     }
-  }, [windowWidth, currentIndex]); 
+  }, [windowWidth, currentIndex,events]); 
 
   useEffect(() => {
     document.body.style.overflow = "hidden"; 
