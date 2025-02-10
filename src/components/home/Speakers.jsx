@@ -16,9 +16,9 @@ const speakers = [
 
 const Speakers = () => {
   return (
-    <Box display={'flex'} flexDirection="column" justifyContent={'center'} alignItems={'center'}>
+    <Box display={'flex'} flexDirection={['column']} justifyContent={'center'} alignItems={'center'} >
       <Heading fontFamily={'sans-serif'} fontSize={'2xl'} m={20}>KeyNote Speakers</Heading>
-      <SimpleGrid columns={[1, 2, 3, 4]} spacing="6">
+      <SimpleGrid columns={[1, 2, 3, 4]} spacing="6" w={"100%"} display={'flex'} justifyContent={'center'}>
         {speakers.map((member, index) => (
           <VStack
             key={index}
