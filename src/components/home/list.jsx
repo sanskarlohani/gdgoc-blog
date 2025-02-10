@@ -5,6 +5,7 @@ import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
 import { events } from "../../Eventdetails";
 import { useThemeContext } from "../../contexts/themecontext";
 import { useNavigate } from "react-router-dom";
+import Speakers from './Speakers';
 
 const List = () => {
   const { colorMode } = useThemeContext();
@@ -35,30 +36,22 @@ const List = () => {
     } else {
       setCurrentEvents(events.slice(currentIndex, currentIndex + 1)); 
     }
-  }, [windowWidth, currentIndex,events]); 
-
-  useEffect(() => {
-    document.body.style.overflow = "hidden"; 
-
-    return () => {
-      document.body.style.overflow = "auto"; 
-    };
-  }, []);
+  }, [windowWidth, currentIndex, events]); 
 
   return (
     <Box
       w="100vw"
-      h="100vh"
+      minH="100vh"
       display="flex"
       flexDirection="column"
       alignItems="center"
-      justifyContent="center"
+      justifyContent="flex-start"
       position="relative"
-      overflow="hidden"
       bgImage={`url(${colorMode === "light" ? "/abstract.jpg" : ""})`}
       color={colorMode === "light" ? "black" : "white"} 
+      overflowY="auto"
     >
-      <Heading top={10} fontSize={['5xl','10xl']}>EVENTS</Heading>
+      <Heading top={500} fontSize={['5xl', '10xl']} mt={5}>EVENTS</Heading>
       <Box
         position="absolute"
         top="0"
@@ -98,7 +91,7 @@ const List = () => {
               <VStack
                 spacing={6} 
                 p={5}
-				mr={5}
+                mr={5}
                 borderWidth="1px"
                 borderRadius="lg"
                 boxShadow="2xl"
@@ -106,7 +99,6 @@ const List = () => {
                 bg="white"
                 maxW="400px"
                 color="black"
-                h="500px"
                 minH="500px"
                 position="relative"
                 overflow="hidden"
@@ -126,48 +118,50 @@ const List = () => {
                   bg="green.500"
                   p={3}
                   onClick={() => navigate(`/event/${event.id}`)}
-                  position="absolute"
-                  bottom={4} 
-                  left="50%" 
-                  transform="translateX(-50%)" 
+                  alignSelf="center"
+                  mt="auto"
                 >
                   Register
                 </Button>
               </VStack>
+               
+      
             </motion.div>
           ))}
+          <Button
+            bg="black"
+            position="absolute"
+            left={{ base: "0%", md: "5%" }}
+            top="20%"
+            transform="translateY(-50%)"
+            onClick={prevEvent}
+            color="white"
+            zIndex={20}
+            _hover={{ bg: "gray.800" }}
+            _active={{ bg: "gray.900" }}
+          >
+            <ChevronLeftIcon />
+          </Button>
+          <Button
+            bg="black"
+            position="absolute"
+            right={{ base: "4%", md: "5%" }}
+            top="20%"
+            transform="translateY(-50%)"
+            onClick={nextEvent}
+            color="white"
+            zIndex={20}
+            _hover={{ bg: "gray.800" }}
+            _active={{ bg: "gray.900" }}
+          >
+            <ChevronRightIcon />
+          </Button>
         </AnimatePresence>
       </SimpleGrid>
-
-  
-      <Button
-        bg="black"
-        position="absolute"
-        left="5%"
-        top="50%"
-        transform="translateY(-50%)"
-        onClick={prevEvent}
-        color="white"
-        zIndex={20}
-        _hover={{ bg: "gray.800" }}
-        _active={{ bg: "gray.900" }}
-      >
-        <ChevronLeftIcon />
-      </Button>
-      <Button
-        bg="black"
-        position="absolute"
-        right="5%"
-        top="50%"
-        transform="translateY(-50%)"
-        onClick={nextEvent}
-        color="white"
-        zIndex={20}
-        _hover={{ bg: "gray.800" }}
-        _active={{ bg: "gray.900" }}
-      >
-        <ChevronRightIcon />
-      </Button>
+      <Box display={'flex'} alignItems={'center'} justifyContent={'center'} width="100%" gap={5} mt={10}>
+        <Speakers />
+      </Box>
+     
     </Box>
   );
 };

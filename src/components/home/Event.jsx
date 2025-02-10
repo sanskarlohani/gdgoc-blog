@@ -24,7 +24,7 @@ const Event = () => {
       alignItems="center"
       textAlign="center"
       px={[4, 6, 10]}
-     bgImage={"url('https://gdsc.iiitd.edu.in/static/media/lower_yellow_square.bdeae0bc6d849480de1edb3fe12c1660.svg')"}
+      bgImage={"url('https://gdsc.iiitd.edu.in/static/media/lower_yellow_square.bdeae0bc6d849480de1edb3fe12c1660.svg')"}
       bgSize="cover"
       bgPosition="center"
     >
@@ -35,10 +35,8 @@ const Event = () => {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.8, transition: { duration: 1 } }}
-            transition={{ duration: 0.5 }}
-          >
-            
-            <Heading fontSize={"3rem"} fontWeight={"bold"} color={colorMode === "light" ? "black" : "white"} >  Welcome to Developers Summit 2.0</Heading>
+            transition={{ duration: 0.5 }}>
+            <Heading fontSize={"3rem"} fontWeight={"bold"} color={colorMode === "light" ? "black" : "white"} >Welcome to Developers Summit 2.0</Heading>
           </motion.div>
         ) : (
           <motion.div
@@ -46,8 +44,7 @@ const Event = () => {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.8, transition: { duration: 1 } }}
-            transition={{ duration: 0.5 }}
-          >
+            transition={{ duration: 0.5 }}>
             <Nav />
             <List />
           </motion.div>

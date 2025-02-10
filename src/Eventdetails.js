@@ -24,7 +24,7 @@ export const events = [
   {
     id:3,
     photo: "/photojpeg.jpeg",
-    name: "bugBounty",
+    name: "BugBounty",
     timing: "10:15 AM - 1:30 PM",
     description: "Participants will be given buggy code and must identify and fix errors within the given time. This is a debugging challenge that assesses programming knowledge, error detection, and debugging efficiency. The winner will be the team that fixes the most bugs correctly.",
     guidelines: "",
