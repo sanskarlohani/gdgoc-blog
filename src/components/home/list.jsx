@@ -94,7 +94,7 @@ const List = () => {
               <VStack
                 spacing={6}
                 p={5}
-                mr={5}
+                
                 borderWidth="1px"
                 borderRadius="lg"
                 boxShadow="2xl"

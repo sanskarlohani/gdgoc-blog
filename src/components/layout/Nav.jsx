@@ -61,7 +61,7 @@ function Nav({hidden}) {
         <Spacer />
 
         <Box ml="2" display={'flex'} gapX={5}>
-           <Button onClick={toggleColorMode} hidden={hidden} >
+           <Button onClick={toggleColorMode} hidden={hidden} disabled={hidden}>
                 {colorMode === 'light' ? <SunIcon/>: <MoonIcon/>}
               </Button>
           {currentUser ? (
