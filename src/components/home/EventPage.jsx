@@ -28,7 +28,7 @@ const EventPage = () => {
       color={colorMode === "light" ? "black" : "white"}
       px={[4, 8]}
     >
-      <Nav />
+      <Nav hidden={true}/>
 
 
       <Box textAlign="center" mt={6}>
