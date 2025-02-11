@@ -16,9 +16,32 @@ const speakers = [
 
 const Speakers = () => {
   return (
-    <Box display={'flex'} flexDirection={['column']} justifyContent={'center'} alignItems={'center'}>
-      <Heading fontFamily={'sans-serif'} fontSize={['2xl', '3xl', '5xl']} m={10} color={'whiteAlpha.600'}>KeyNote Speakers</Heading>
-      <SimpleGrid columns={[1, 2, 3, 4]} spacing="6" w={"100%"} maxW="1200px" px={4} justifyItems="center">
+    <Box
+      width="100%"
+      maxW="1200px"
+      display="flex"
+      flexDirection="column"
+      alignItems="center"
+      justifyContent="center"
+      textAlign="center"
+     
+    >
+      <Heading
+        fontFamily="sans-serif"
+        fontSize={['2xl', '3xl', '5xl']}
+        mb={10}
+        color="whiteAlpha.600"
+      >
+        KeyNote Speakers
+      </Heading>
+      <SimpleGrid
+        columns={[1, 2, 3, 4]}
+        spacing="6"
+        width="100%"
+        justifyItems="center"
+        ml={["0","50%"]}
+        gap={10}
+      >
         {speakers.map((member, index) => (
           <VStack
             key={index}
@@ -29,21 +52,24 @@ const Speakers = () => {
             boxShadow="md"
             align="center"
             justify="center"
-            h={['auto', '400px']}
-            w="100%"
-            maxW="300px"
+            width="100%"
+            maxW="400px"
+            bg="white"
           >
             <Image
-              height={['120px', '150px']}
-              fit="cover"
-              aspectRatio={1}
-              borderRadius="full"
+              width="100%"
+              height="auto"
+              objectFit="cover"
+              borderRadius="lg"
               src={member.photo}
+              alt={member.name}
             />
             <Text fontWeight="bold" fontSize={['md', 'lg']}>
               {member.name}
             </Text>
-            <Text color="white" textAlign="center">{member.role}</Text>
+            <Text color="gray.600" textAlign="center">
+              {member.role}
+            </Text>
           </VStack>
         ))}
       </SimpleGrid>

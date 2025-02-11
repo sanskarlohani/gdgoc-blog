@@ -30,7 +30,7 @@ const EventPage = () => {
     >
       <Nav />
 
-     
+
       <Box textAlign="center" mt={6}>
         <Heading
           fontSize={["3xl", "5xl", "6xl"]}
@@ -42,18 +42,18 @@ const EventPage = () => {
         </Heading>
       </Box>
 
-      
+
       <Flex
-        direction={["column", "column", "row"]} 
+        direction={["column", "column", "row"]}
         align="center"
         justify="center"
         gap={8}
         mt={8}
         flexWrap="wrap"
       >
-       
-        <Box 
-          w={["90vw", "70vw", "50vh"]} 
+
+        <Box
+          w={["90vw", "70vw", "50vh"]}
           h={["50vh", "50vh", "50vh"]}
           display="flex"
           justifyContent="center"
@@ -75,19 +75,19 @@ const EventPage = () => {
           />
         </Box>
 
-        
-        <Box 
-          display="flex" 
-          flexDirection="column" 
-          alignItems="center" 
+
+        <Box
+          display="flex"
+          flexDirection="column"
+          alignItems="center"
           justifyContent="center"
-          w={["100%", "90%", "50%"]} 
+          w={["100%", "90%", "50%"]}
         >
           <Stack w="100%" spacing={6} align="center">
-       
+
             <Box
               w="100%"
-              
+
               rounded="md"
               p={4}
               boxShadow="lg"
@@ -97,10 +97,14 @@ const EventPage = () => {
               <Text fontSize={["sm", "md"]}>{foundEvent.description}</Text>
             </Box>
 
-          
+            <a href={foundEvent.file} download style={{width:"100%"}}>
+              <Button colorScheme="blue" mt={4} w={"100%"} bg={'green.500'}>
+                Download Rule Book
+              </Button>
+            </a>
             <Box
               w="100%"
-             
+
               rounded="md"
               p={4}
               boxShadow="lg"
@@ -108,7 +112,7 @@ const EventPage = () => {
             >
               <Heading fontSize="2xl" mb={2}>DETAILS</Heading>
               <Text fontSize={["sm", "md"]}>
-                📅 <strong>Date:</strong> 21st Feb
+                📅 <strong>Date:</strong> {foundEvent.details}
               </Text>
               <Text fontSize={["sm", "md"]}>
                 📍 <strong>Location:</strong> Silicon University
@@ -116,11 +120,11 @@ const EventPage = () => {
             </Box>
           </Stack>
 
-        
+
           <Box
             w="100%"
             textAlign="center"
-            
+
             rounded="md"
             py={4}
             mt={6}
@@ -129,11 +133,11 @@ const EventPage = () => {
           >
             <Text fontSize={["md", "2xl"]} fontWeight="bold">
               CONTACT:
-              
+
             </Text>
           </Box>
 
-        
+
           <Box display="flex" justifyContent="center" py={4}>
             <Button
               _hover={{
