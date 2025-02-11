@@ -87,7 +87,7 @@ const EventPage = () => {
        
             <Box
               w="100%"
-              border="2px solid darkblue"
+              
               rounded="md"
               p={4}
               boxShadow="lg"
@@ -100,7 +100,7 @@ const EventPage = () => {
           
             <Box
               w="100%"
-              border="2px solid grey"
+             
               rounded="md"
               p={4}
               boxShadow="lg"
@@ -120,7 +120,7 @@ const EventPage = () => {
           <Box
             w="100%"
             textAlign="center"
-            border="2px solid darkblue"
+            
             rounded="md"
             py={4}
             mt={6}
@@ -128,7 +128,8 @@ const EventPage = () => {
             bg={colorMode === "light" ? "white" : "blackAlpha.700"}
           >
             <Text fontSize={["md", "2xl"]} fontWeight="bold">
-              CONTACT
+              CONTACT:
+              
             </Text>
           </Box>
 

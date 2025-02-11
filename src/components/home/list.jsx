@@ -40,6 +40,7 @@ const List = () => {
 
   return (
     <Box
+      pt={100}
       w="100vw"
       minH="100vh"
       display="flex"
@@ -47,17 +48,19 @@ const List = () => {
       alignItems="center"
       justifyContent="flex-start"
       position="relative"
-      bgImage={`url(${colorMode === "light" ? "/abstract.jpg" : ""})`}
+      bg='#983cb9'
+      bgImage="linear-gradient(147deg, #5b1f80 0%, #000000 74%)"
       color={colorMode === "light" ? "black" : "white"} 
       overflowY="auto"
     >
-      <Heading top={500} fontSize={['5xl', '10xl']} mt={5}>EVENTS</Heading>
+      <Heading top={500} fontSize={['5xl', '10xl']} mt={5} color={'whiteAlpha.700'}>EVENTS</Heading>
       <Box
         position="absolute"
         top="0"
         left="0"
         w="100%"
         h="100%"
+        aspectRatio={1}
         bgImage={`url(/abstract.jpg)`}
         bgSize="cover"
         bgPosition="center"
@@ -129,30 +132,32 @@ const List = () => {
             </motion.div>
           ))}
           <Button
-            bg="black"
+       
             position="absolute"
-            left={{ base: "0%", md: "5%" }}
+            left={{ base: "0%", md: "0%" }}
             top="20%"
             transform="translateY(-50%)"
             onClick={prevEvent}
-            color="white"
             zIndex={20}
             _hover={{ bg: "gray.800" }}
             _active={{ bg: "gray.900" }}
+            bg={ "white" }
+            color={ "black"}
           >
             <ChevronLeftIcon />
           </Button>
           <Button
-            bg="black"
+           
             position="absolute"
             right={{ base: "4%", md: "5%" }}
             top="20%"
             transform="translateY(-50%)"
             onClick={nextEvent}
-            color="white"
             zIndex={20}
             _hover={{ bg: "gray.800" }}
             _active={{ bg: "gray.900" }}
+            bg={ "white" }
+            color={ "black"}
           >
             <ChevronRightIcon />
           </Button>

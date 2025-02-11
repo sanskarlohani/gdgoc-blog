@@ -20,7 +20,7 @@ import { useThemeContext } from "../../contexts/themecontext";
 
 const img = "/image.png"
 
-function Nav() {
+function Nav({hidden}) {
   
   const [width, setWidth] = useState(window.innerWidth);
   const navigate = useNavigate();
@@ -61,7 +61,7 @@ function Nav() {
         <Spacer />
 
         <Box ml="2" display={'flex'} gapX={5}>
-           <Button onClick={toggleColorMode}>
+           <Button onClick={toggleColorMode} hidden={hidden} >
                 {colorMode === 'light' ? <SunIcon/>: <MoonIcon/>}
               </Button>
           {currentUser ? (

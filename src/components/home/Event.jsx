@@ -7,7 +7,6 @@ import { useThemeContext } from "../../contexts/themecontext";
 
 const Event = () => {
   const [showAnimation, setShowAnimation] = useState(true);
-   const { colorMode } = useThemeContext();
   useEffect(() => {
     const timer = setTimeout(() => setShowAnimation(false), 3000);
     return () => clearTimeout(timer);
@@ -26,17 +25,19 @@ const Event = () => {
       px={[4, 6, 10]}
       bgImage={"url('https://gdsc.iiitd.edu.in/static/media/lower_yellow_square.bdeae0bc6d849480de1edb3fe12c1660.svg')"}
       bgSize="cover"
+      bg={'black'}
       bgPosition="center"
     >
-      <AnimatePresence mode="wait">
+      <AnimatePresence mode="wait" >
         {showAnimation ? (
           <motion.div
             key="welcome"
+            
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.8, transition: { duration: 1 } }}
-            transition={{ duration: 0.5 }}>
-            <Heading fontSize={"3rem"} fontWeight={"bold"} color={colorMode === "light" ? "black" : "white"} >Welcome to Developers Summit 2.0</Heading>
+            exit={{ opacity: 0, scale: 0.8, transition: { duration: 0.5 } }}
+            transition={{ duration: 0.2 }}>
+            <Heading fontSize={"3rem"} fontWeight={"bold"} color={ "white"} bg={'black'} >Welcome to Developers Summit 2.0</Heading>
           </motion.div>
         ) : (
           <motion.div
@@ -45,7 +46,7 @@ const Event = () => {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.8, transition: { duration: 1 } }}
             transition={{ duration: 0.5 }}>
-            <Nav />
+            <Nav hidden={true}/>
             <List />
           </motion.div>
         )}
