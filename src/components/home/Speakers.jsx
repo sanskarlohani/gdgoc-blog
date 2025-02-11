@@ -16,9 +16,9 @@ const speakers = [
 
 const Speakers = () => {
   return (
-    <Box display={'flex'} flexDirection={['column']} justifyContent={'center'} alignItems={'center'} >
-      <Heading fontFamily={'sans-serif'} fontSize={'2xl'} m={20}>KeyNote Speakers</Heading>
-      <SimpleGrid columns={[1, 2, 3, 4]} spacing="6" w={"100%"} display={'flex'} justifyContent={'center'}>
+    <Box display={'flex'} flexDirection={['column']} justifyContent={'center'} alignItems={'center'}>
+      <Heading fontFamily={'sans-serif'} fontSize={['2xl', '3xl', '5xl']} m={10} color={'whiteAlpha.600'}>KeyNote Speakers</Heading>
+      <SimpleGrid columns={[1, 2, 3, 4]} spacing="6" w={"100%"} maxW="1200px" px={4} justifyItems="center">
         {speakers.map((member, index) => (
           <VStack
             key={index}
@@ -29,21 +29,21 @@ const Speakers = () => {
             boxShadow="md"
             align="center"
             justify="center"
-            h="100%"
+            h={['auto', '400px']}
             w="100%"
-           
+            maxW="300px"
           >
             <Image
-              height="150px"
+              height={['120px', '150px']}
               fit="cover"
               aspectRatio={1}
               borderRadius="full"
               src={member.photo}
             />
-            <Text fontWeight="bold" fontSize="lg">
+            <Text fontWeight="bold" fontSize={['md', 'lg']}>
               {member.name}
             </Text>
-            <Text color="gray.500">{member.role}</Text>
+            <Text color="white" textAlign="center">{member.role}</Text>
           </VStack>
         ))}
       </SimpleGrid>
