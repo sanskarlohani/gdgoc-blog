@@ -32,7 +32,9 @@ const List = () => {
 
   useEffect(() => {
     if (windowWidth >= 768) {
-      setCurrentEvents(events.slice(currentIndex, currentIndex + 3));
+      setCurrentEvents(events.slice(currentIndex, currentIndex + 3).concat(
+        events.slice(0, Math.max(0, 3 - (events.length - currentIndex)))
+      ));
     } else {
       setCurrentEvents(events.slice(currentIndex, currentIndex + 1));
     }
@@ -67,101 +69,103 @@ const List = () => {
         filter="blur(10px)"
       />
 
-      <SimpleGrid
-        columns={{ base: 1, md: 3 }}
-        spacing={6}
-        p={6}
-        w="100%"
-        h="auto"
-        maxW="1200px"
-        align="center"
-        justify="center"
-        gap={20}
+<SimpleGrid
+  columns={{ base: 1, md: 2, lg: 3 }} 
+  spacing={6}
+ 
+  pl={{ base: "20%", md: 6 }} 
+  pr={{ base: "20%", md: 6 }} 
+  pt={{ base: 8, md: 12 }} 
+  pb={{ base: 8, md: 12 }} 
+  w="100%"
+  maxW="1200px"
+  mx="auto" 
+  align="center"
+  justify="center"
+  gap={{ base: 6, md: 8 }} 
+>
+  <AnimatePresence mode="wait">
+    {currentEvents.map((event) => (
+      <motion.div
+        key={event.id}
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -20 }}
+        transition={{
+          duration: 0.6,
+          ease: "easeOut",
+        }}
+        style={{ position: "relative", zIndex: 1 }}
       >
-        <AnimatePresence mode="wait">
-          {currentEvents.map((event) => (
-            <motion.div
-              key={event.id}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{
-                duration: 0.6,
-                ease: "easeOut"
-              }}
-              style={{ position: "relative", zIndex: 1 }}
+        <VStack
+          spacing={4}
+          p={4}
+          borderWidth="1px"
+          borderRadius="lg"
+          boxShadow="2xl"
+          align="center"
+          w={{ base: "280px", md: "320px", lg: "360px" }} 
+          h={{ base: "280px", md: "320px", lg: "360px" }} 
+          position="relative"
+          overflow="hidden"
+        >
+          {/* Event Image */}
+          <Image
+            src={`${event.photo}`}
+            alt={event.name}
+            h="100%"
+            w="100%"
+            objectFit="cover"
+            position="absolute"
+            top={0}
+            left={0}
+            zIndex={0}
+          />
+
+          <Box
+             display="flex"
+             flexDirection="column"
+             justifyContent="flex-end"
+             alignItems="center"
+             w="100%"
+             h="40%"
+             p={4}
+             borderRadius="md"
+             zIndex={1}
+             position="absolute"
+             bottom={0}
+          >
+            <Text
+              fontWeight="bold"
+              fontSize={{ base: "lg", md: "xl" }} 
+              noOfLines={1}
+              textOverflow="ellipsis"
+              color="white" 
+              textAlign="center"
             >
-              <VStack
-                spacing={6}
-                p={5}
-                
-                borderWidth="1px"
-                borderRadius="lg"
-                boxShadow="2xl"
-                align="center"
-                w={{ base: "300px", md: "400px" }}
-                h={{ base: "300px", md: "400px" }}
-                position="relative"
-                overflow="hidden"
-              >
-               
-                <Image
-                  src={`${event.photo}`}
-                  alt={event.name}
-                  h="100%"
-                  w="100%"
-                  objectFit="cover" 
-                  position="absolute"
-                  top={0}
-                  left={0}
-                  zIndex={0}
-                />
+              {event.name}
+            </Text>
 
-           
-                <Box
-                  display="flex"
-                  flexDirection="column"
-                  justifyContent="flex-end" 
-                  alignItems="center"
-                  w="100%"
-                  h="40%" 
-                  p={4}
-                 
-                  borderRadius="md"
-                  zIndex={1}
-                  position="absolute"
-                  bottom={0} 
-                >
-               
-                  <Text
-                    fontWeight="bold"
-                    fontSize="xl"
-                    noOfLines={1}
-                    textOverflow="ellipsis"
-                    
-                  >
-                    {event.name}
-                  </Text>
 
-                  
-                  <Button
-                    rounded="full"
-                    bg="green.500"
-                    p={3}
-                    onClick={() => navigate(`/event/${event.id}`)}
-                    alignSelf="center"
-                    zIndex={2}
-                  >
-                    Register
-                  </Button>
-                </Box>
-              </VStack>
-            </motion.div>
-          ))}
-        </AnimatePresence>
-      </SimpleGrid>
+            <Button
+              rounded="full"
+              bg="green.500"
+              p={3}
+              onClick={() => navigate(`/event/${event.id}`)}
+              alignSelf="center"
+              zIndex={2}
+              _hover={{ bg: "green.600" }} 
+              size={{ base: "sm", md: "md" }} 
+            >
+              Register
+            </Button>
+          </Box>
+        </VStack>
+      </motion.div>
+    ))}
+  </AnimatePresence>
+</SimpleGrid>
 
-      {/* Navigation Buttons */}
       <Button
         position="absolute"
         left={{ base: "10px", md: "5%" }}

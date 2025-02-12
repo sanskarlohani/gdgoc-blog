@@ -51,7 +51,7 @@ function Nav({hidden}) {
   return (
     <Box  px={["6", "10"]} width="100%"  
     position={'sticky'}
-    color={colorMode === "light" ? "black" : "white"} >
+    color={"blue.500"} zIndex={1000}>
       <Flex justify="center" align="center">
         <Link to="/">
           <Image src={img} width="150px" height="90px" />
@@ -82,7 +82,7 @@ function Nav({hidden}) {
                 </MenuButton>
               )}
               <MenuList >
-                <MenuGroup  >
+                <MenuGroup zIndex={9999} >
                   <MenuItem as={Link} to="/write" _hover={{
                     bg: "black",
                     color: "white",

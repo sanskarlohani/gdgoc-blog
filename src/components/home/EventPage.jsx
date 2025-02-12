@@ -24,7 +24,7 @@ const EventPage = () => {
     <Box
       minH="100vh"
       w="100%"
-      bg={colorMode === "light" ? "white" : "black"}
+      bg={ "black"}
       color={colorMode === "light" ? "black" : "white"}
       px={[4, 8]}
     >
@@ -131,9 +131,12 @@ const EventPage = () => {
             boxShadow="lg"
             bg={colorMode === "light" ? "white" : "blackAlpha.700"}
           >
-            <Text fontSize={["md", "2xl"]} fontWeight="bold">
-              CONTACT:
-
+            <Text fontSize={["md","xl"]} fontWeight="bold" display={'flex'} flexDirection={'column'} justifyContent={'center'} alignItems={'center'}>
+              Contact:
+              <Text>
+                 {foundEvent.contact}
+              </Text>
+             
             </Text>
           </Box>
 

@@ -3,13 +3,19 @@ import { Box, Heading } from "@chakra-ui/react";
 import { motion, AnimatePresence } from "framer-motion";
 import List from "./list";
 import Nav from "../layout/Nav";
-import { useThemeContext } from "../../contexts/themecontext";
 
 const Event = () => {
   const [showAnimation, setShowAnimation] = useState(true);
+
   useEffect(() => {
-    const timer = setTimeout(() => setShowAnimation(false), 3000);
-    return () => clearTimeout(timer);
+    const hasAnimationPlayed = localStorage.getItem("animationPlayed");
+
+    if (hasAnimationPlayed) {
+      setShowAnimation(false);
+      localStorage.setItem("animationPlayed", "true");
+      const timer = setTimeout(() => setShowAnimation(false), 300);
+      return () => clearTimeout(timer);
+    }
   }, []);
 
   return (
@@ -28,16 +34,24 @@ const Event = () => {
       bg={'black'}
       bgPosition="center"
     >
-      <AnimatePresence mode="wait" >
+      {/* Render Nav unconditionally */}
+    
+
+      <AnimatePresence mode="wait">
         {showAnimation ? (
           <motion.div
             key="welcome"
-            
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.8, transition: { duration: 0.5 } }}
-            transition={{ duration: 0.2 }}>
-            <Heading fontSize={"3rem"} fontWeight={"bold"} color={ "white"} bg={'black'} >Welcome to Developers Summit 2.0</Heading>
+            transition={{ duration: 0.2 }}
+          >
+            <Heading fontSize={"3rem"} fontWeight={"bold"} color={"white"} bg={'black'}>
+              Welcome
+            </Heading>
+            <Heading fontSize={"3rem"} fontWeight={"bold"} color={"white"} bg={'black'} m={5}>
+              to Developers Summit 2.0
+            </Heading>
           </motion.div>
         ) : (
           <motion.div
@@ -45,8 +59,9 @@ const Event = () => {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.8, transition: { duration: 1 } }}
-            transition={{ duration: 0.5 }}>
-            <Nav hidden={true}/>
+            transition={{ duration: 0.5 }}
+          >
+              <Nav hidden={true}/>
             <List />
           </motion.div>
         )}

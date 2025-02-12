@@ -36,7 +36,7 @@ const Speakers = () => {
       </Heading>
       <SimpleGrid
         columns={[1, 2, 3, 4]}
-        spacing="6"
+        spacing="60"
         width="100%"
         justifyItems="center"
         ml={["0","50%"]}
@@ -53,7 +53,7 @@ const Speakers = () => {
             align="center"
             justify="center"
             width="100%"
-            maxW="400px"
+            maxW="300px"
             bg="white"
           >
             <Image
