@@ -3,6 +3,7 @@ import { Box, Heading } from "@chakra-ui/react";
 import { motion, AnimatePresence } from "framer-motion";
 import List from "./list";
 import Nav from "../layout/Nav";
+import Footer from "./Footer";
 
 const Event = () => {
   const [showAnimation, setShowAnimation] = useState(false);
@@ -33,6 +34,7 @@ const Event = () => {
       bgSize="cover"
       bg={'black'}
       bgPosition="center"
+      overflowX={'hidden'}
     >
       {/* Render Nav unconditionally */}
     
@@ -63,6 +65,7 @@ const Event = () => {
           >
               <Nav hidden={true}/>
             <List />
+            <Footer/>
           </motion.div>
         )}
       </AnimatePresence>

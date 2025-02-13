@@ -20,7 +20,7 @@ export const events = [
     guidelines: "",
     details: "21st February 2025",
     contact: "JayDeep - +91 8917662607 Aditya - +91 9279661127 ",
-    file:"",
+    file:"/REINCARNATE.pdf",
     explore: "explore",
   },
   {

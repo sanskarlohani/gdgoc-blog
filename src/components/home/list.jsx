@@ -54,6 +54,7 @@ const List = () => {
       bgImage="linear-gradient(147deg, #5b1f80 0%, #000000 74%)"
       color={colorMode === "light" ? "black" : "white"}
       overflowY="auto"
+      overflowX={'hidden'}
     >
       <Heading fontSize={['5xl', '10xl']} mt={5} color={'whiteAlpha.700'}>EVENTS</Heading>
       <Box
