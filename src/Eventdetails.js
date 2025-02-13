@@ -23,18 +23,7 @@ export const events = [
     file:"/REINCARNATE.pdf",
     explore: "explore",
   },
-  {
-    id:3,
-    photo: "/photojpeg.jpeg",
-    name: "BugBounty",
-    timing: "10:15 AM - 1:30 PM",
-    description: "Participants will be given buggy code and must identify and fix errors within the given time. This is a debugging challenge that assesses programming knowledge, error detection, and debugging efficiency. The winner will be the team that fixes the most bugs correctly.",
-    guidelines: "",
-    details: "22nd February 2025",
-    contact: "",
-    file:"",
-	explore: "explore",
-  },
+  
   {
     id:4,
     photo: "/webHunt.jpg",
