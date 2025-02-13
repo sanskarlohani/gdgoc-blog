@@ -61,6 +61,7 @@ const Speakers = () => {
             width="100%"
             maxW="300px"
             bg="white"
+            aspectRatio={1}
           >
             <Image
               width="100%"
