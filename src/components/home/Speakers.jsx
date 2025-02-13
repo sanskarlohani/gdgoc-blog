@@ -30,7 +30,7 @@ const Speakers = () => {
       alignItems="center"
       justifyContent="center"
       textAlign="center"
-     
+     mb={10}
     >
       <Heading
         fontFamily="sans-serif"
@@ -76,7 +76,7 @@ const Speakers = () => {
             <Text color="gray.600" textAlign="center">
               {member.role}
             </Text>
-            <Button onClick={()=>window.open(`${member.register}`,"_blank")}>
+            <Button onClick={()=>window.open(`${member.register}`,"_blank")} bg={'green.500'} rounded={'full'} p={3}>
               Register
             </Button>
           </VStack>

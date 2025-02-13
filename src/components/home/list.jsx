@@ -136,17 +136,6 @@ const List = () => {
              position="absolute"
              bottom={0}
           >
-            <Text
-              fontWeight="bold"
-              fontSize={{ base: "lg", md: "xl" }} 
-              noOfLines={1}
-              textOverflow="ellipsis"
-              color="white" 
-              textAlign="center"
-            >
-              {event.name}
-            </Text>
-
 
             <Button
               rounded="full"
