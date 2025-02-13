@@ -5,13 +5,13 @@ import List from "./list";
 import Nav from "../layout/Nav";
 
 const Event = () => {
-  const [showAnimation, setShowAnimation] = useState(true);
+  const [showAnimation, setShowAnimation] = useState(false);
 
   useEffect(() => {
     const hasAnimationPlayed = localStorage.getItem("animationPlayed");
 
-    if (hasAnimationPlayed) {
-      setShowAnimation(false);
+    if (!hasAnimationPlayed) {
+      setShowAnimation(true);
       localStorage.setItem("animationPlayed", "true");
       const timer = setTimeout(() => setShowAnimation(false), 300);
       return () => clearTimeout(timer);
