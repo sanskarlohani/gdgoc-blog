@@ -8,8 +8,11 @@ import {
 import { toast } from "react-toastify";
 import { useAuth } from "../../contexts/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
+import { useThemeContext } from "../../contexts/themecontext";
 
 function Login() {
+  
+    const { colorMode } = useThemeContext();
   const { googleSignIn, githubSignIn } = useAuth();
   const [loading, setLoading] = useState(false);
   
@@ -58,7 +61,7 @@ function Login() {
         textAlign="center"
         flexDirection="column"
       >
-        <Box width="90%" maxW="400px" boxShadow="lg" px={6} py={8} rounded="lg">
+        <Box width="90%" maxW="400px" boxShadow="lg" px={6} py={8} rounded="lg"  >
           <Text fontSize="2xl" fontWeight="semibold" mb={4}>
             Login
           </Text>
@@ -69,6 +72,9 @@ function Login() {
             colorScheme="blue"
             onClick={handleGoogleSignIn}
             isLoading={loading}
+            bg={colorMode === "dark" ? "white" : "black"}
+                        color={colorMode === "dark" ? "black" : "white"}
+                        mb={5}
           >
             Sign in with Google
           </Button>
@@ -79,6 +85,8 @@ function Login() {
             colorScheme="gray"
             onClick={handleGithubSignIn}
             isLoading={loading}
+            bg={colorMode === "dark" ? "white" : "black"}
+            color={colorMode === "dark" ? "black" : "white"}
           >
             Sign in with GitHub
           </Button>
