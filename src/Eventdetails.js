@@ -34,7 +34,7 @@ export const events = [
     guidelines: "",
     details: "21st February 2025",
     contact: "Subham : 85968 24861, Mritunjay : 73260 76665",
-    file:"/Web Hunt.pdf",
+    file:"/Web Hunt1.pdf",
     explore: "explore",
   },
   {
