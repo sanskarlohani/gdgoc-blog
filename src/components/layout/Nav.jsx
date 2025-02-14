@@ -114,7 +114,8 @@ function Nav({hidden}) {
               </MenuList>
             </Menu>
           ) : (
-            <Button as={Link} to="/login" colorScheme="blue">
+            <Button as={Link} to="/login" colorScheme="blue" bg={colorMode === "dark" ? "white" : "black"}
+            color={colorMode === "dark" ? "black" : "white"} >
               Sign Up
             </Button>
           )}
