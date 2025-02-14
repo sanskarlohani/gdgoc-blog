@@ -1,7 +1,7 @@
 export const events = [
   {
     id:1,
-    photo: "/photojpeg.jpeg",
+    photo: "/tech.jpg",
     name: "TechSynopsis",
     timing: "10:15 AM - 1:30 PM",
     description: "Participants will be given a real-world problem statement and will need to create a Software Requirements Specification (SRS) document based on it. This event is designed to test analytical thinking, problem breakdown, and documentation skills essential for software development. Teams will be judged on clarity, completeness, and feasibility of their SRS.",
@@ -9,11 +9,12 @@ export const events = [
     details: "21st February 2025",
     contact: "Sakshi : 90401 74032,Sheetal : 95085 44351",
     explore: "explore",
-    file:"/TECHSYNOPSIS.pdf"
+    file:"/TECHSYNOPSIS.pdf",
+    form:"https://forms.gle/wBEVXBY4EdAm4Rhg7"
   },
   {
     id:2,
-    photo: "/photojpeg.jpeg",
+    photo: "/reincarnate.jpg",
     name: "Reincarnate",
     timing: "10:15 AM - 1:30 PM",
     description: "Teams of two will be provided with a sample website that they must redesign using Figma. The challenge focuses on UI/UX design, prototyping, and creativity. Teams will be judged on design aesthetics, responsiveness, and adherence to modern UI/UX principles.",
@@ -22,6 +23,7 @@ export const events = [
     contact: "Jaydeep : 89176 62607 , Aditya : 92796 61127 ",
     file:"/REINCARNATE.pdf",
     explore: "explore",
+    form:"https://forms.gle/dj1byPSkDxe1P4MeA"
   },
   
   {
@@ -36,6 +38,7 @@ export const events = [
     contact: "Subham : 85968 24861, Mritunjay : 73260 76665",
     file:"/Web Hunt1.pdf",
     explore: "explore",
+    form:"https://forms.gle/6pJ3ic1qVMzFtY6a8"
   },
   {
     id:5,
@@ -48,10 +51,11 @@ export const events = [
     contact: "Jay dev : 62992 14255 , Nafees : 78942 21735",
     file:"/The_Escape_Room.pdf",
     explore: "explore",
+    form:"https://forms.gle/py485kYxfqdNVZdA7"
   },
   {
     id:6,
-    photo: "/photojpeg.jpeg",
+    photo: "/data.jpg",
     name: "Data Crunch",
     timing: "10:15 AM - 1:30 PM",
     description: "Data Crunch is a multi-level process that begins with data preprocessing, where outliers are detected and removed to enhance data quality . This is followed by data analysis and visualization. The final stage involves comprehensive data analysis, focusing on an in-depth examination of the dataset to derive meaningful findings, insights, and implications.",
@@ -60,5 +64,6 @@ export const events = [
     contact: "Manish : 63717 50590 , Ishan : 83401 21267",
     file:"/DATA CRUNCH.pdf",
     explore: "explore",
+    form:"https://forms.gle/WQumFA3DGZT3h8Bq7"
   },
 ];

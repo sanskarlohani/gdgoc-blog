@@ -154,6 +154,7 @@ const EventPage = () => {
               color="white"
               fontSize="lg"
               rounded="full"
+              onClick={()=>window.open(`${foundEvent.form}`,"_blank")}
             >
               Register Now
             </Button>

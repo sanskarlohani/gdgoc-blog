@@ -14,7 +14,7 @@ const Event = () => {
     if (!hasAnimationPlayed) {
       setShowAnimation(true);
       localStorage.setItem("animationPlayed", "true");
-      const timer = setTimeout(() => setShowAnimation(false), 300);
+      const timer = setTimeout(() => setShowAnimation(false), 1000);
       return () => clearTimeout(timer);
     }
   }, []);
@@ -39,23 +39,8 @@ const Event = () => {
       {/* Render Nav unconditionally */}
     
 
-      <AnimatePresence mode="wait">
-        {showAnimation ? (
-          <motion.div
-            key="welcome"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.8, transition: { duration: 0.5 } }}
-            transition={{ duration: 0.2 }}
-          >
-            <Heading fontSize={"3rem"} fontWeight={"bold"} color={"white"} bg={'black'}>
-              Welcome
-            </Heading>
-            <Heading fontSize={"3rem"} fontWeight={"bold"} color={"white"} bg={'black'} m={5}>
-              to Developers Summit 2.0
-            </Heading>
-          </motion.div>
-        ) : (
+      <AnimatePresence mode="sync">
+       
           <motion.div
             key="list"
             initial={{ opacity: 0, scale: 0.8 }}
@@ -67,7 +52,6 @@ const Event = () => {
             <List />
             <Footer/>
           </motion.div>
-        )}
       </AnimatePresence>
     </Box>
   );
