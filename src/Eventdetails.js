@@ -28,7 +28,7 @@ export const events = [
   
   {
     id:4,
-    photo: "/webHunt.jpg",
+    photo: "/web2.jpg",
     name: "Web Hunt",
     timing: "10:15 AM - 1:30 PM",
     description:
@@ -42,7 +42,7 @@ export const events = [
   },
   {
     id:5,
-    photo: "/escapejpg.jpg",
+    photo: "/escape.jpg",
     name: "Escape Room",
     timing: "10:15 AM - 1:30 PM",
     description: "Teams of three will face a series of logic-based challenges and must solve them within 10 minutes per challenge to 'escape the room.' Challenges will include 1. Solving a Sudoku puzzle 2. Solving a Data Structures and Algorithms (DSA) problem 3. Solving the Tower of Hanoi puzzle 4. Answering an output-based programming question 5. Cracking a password",
@@ -55,7 +55,7 @@ export const events = [
   },
   {
     id:6,
-    photo: "/data.jpg",
+    photo: "/data2.jpg",
     name: "Data Crunch",
     timing: "10:15 AM - 1:30 PM",
     description: "Data Crunch is a multi-level process that begins with data preprocessing, where outliers are detected and removed to enhance data quality . This is followed by data analysis and visualization. The final stage involves comprehensive data analysis, focusing on an in-depth examination of the dataset to derive meaningful findings, insights, and implications.",
