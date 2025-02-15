@@ -4,13 +4,13 @@ import { redirect, useNavigate } from 'react-router-dom';
 
 const speakers = [
   {
-    photo: "/s1.jpg",
+    photo: "/sp1.jpg",
     name: "Belal Khan",
     role: "Google Developers Expert, Senior Engineer American Express, Founder Simplified Coding",
     register:"https://gdg.community.dev/events/details/google-gdg-on-campus-silicon-university-bhubaneswar-india-presents-ai-amp-ml-transforming-android/"
   },
   {
-    photo: "/s2.jpg",
+    photo: "/sp2.jpg",
     name: "Soumya Ranjan Sahoo",
     role: "Co-founder & Head of Backend Development in Smartters Software Pvt. Ltd",
     register:"https://gdg.community.dev/events/details/google-gdg-on-campus-silicon-university-bhubaneswar-india-presents-monolithic-vs-microservices-the-big-debate/"
