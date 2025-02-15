@@ -179,8 +179,8 @@ const List = () => {
         zIndex={20}
         _hover={{ bg: "gray.800" }}
         _active={{ bg: "gray.900" }}
-        bg="white"
-        color="black"
+        bg="green.500"
+        color="white"
       >
         <ChevronRightIcon />
       </Button>
