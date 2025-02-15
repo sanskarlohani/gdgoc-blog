@@ -98,9 +98,10 @@ const EventPage = () => {
             </Box>
 
             <a href={foundEvent.file} download style={{width:"100%"}}>
+              {foundEvent.file &&(
               <Button colorScheme="blue" mt={4} w={"100%"} bg={'green.500'}>
                 Download Rule Book
-              </Button>
+              </Button>)}
             </a>
             <Box
               w="100%"

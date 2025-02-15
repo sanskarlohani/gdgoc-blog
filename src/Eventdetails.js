@@ -49,7 +49,7 @@ export const events = [
     guidelines: "",
     details: "22nd February 2025",
     contact: "Jay dev : 62992 14255 , Nafees : 78942 21735",
-    file:"/The_Escape_Room.pdf",
+    file:null,
     explore: "explore",
     form:"https://forms.gle/py485kYxfqdNVZdA7"
   },
