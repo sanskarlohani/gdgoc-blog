@@ -25,7 +25,6 @@ export const events = [
     explore: "explore",
     form:"https://forms.gle/dj1byPSkDxe1P4MeA"
   },
-  
   {
     id:4,
     photo: "/web2.jpg",
@@ -49,7 +48,7 @@ export const events = [
     guidelines: "",
     details: "22nd February 2025",
     contact: "Jay dev : 62992 14255 , Nafees : 78942 21735",
-    file:null,
+    file:"/TheEscapeRoom.pdf",
     explore: "explore",
     form:"https://forms.gle/py485kYxfqdNVZdA7"
   },
