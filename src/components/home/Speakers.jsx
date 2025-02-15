@@ -1,7 +1,6 @@
 import { Box, Image, Text, VStack, SimpleGrid, Heading, Button } from '@chakra-ui/react';
 import React from 'react';
 import { redirect, useNavigate } from 'react-router-dom';
-
 const speakers = [
   {
     photo: "/sp1.jpg",
